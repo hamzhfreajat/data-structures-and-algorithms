@@ -12,4 +12,4 @@ a function called reverseArray which takes an array as an argument. return an ar
 ## Approach & Efficiency
 My approach is to itrate throug the array and put the last index in the first . 
 
-The Big indicater for the complixity in the code and the number of operation that takes.  
+The Big indicater for the complixity in the code and the number of operation that takes and for this approach 3+size of array.  
