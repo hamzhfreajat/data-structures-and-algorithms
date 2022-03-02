@@ -13,8 +13,8 @@ The approach that I used is about next pointer that check the next node so we ca
 
 ## API
 ### insert 
-The insert method give you the ability to insert value in listlink .
+The insert method give you the ability to insert value in Listlink .
 ### include 
-The include method give the ability to check value if it exists in your listlink.
+The include method give the ability to check value if it exists in your Listlink.
 ### toString 
-The toString method give the ability to retrieve the values in your listlink in organize way.
+The toString method give the ability to retrieve the values in your Listlink in organize way.
