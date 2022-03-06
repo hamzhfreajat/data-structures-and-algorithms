@@ -8,7 +8,11 @@ public class App {
 
     public static void main(String[] args) {
         LinkedList<Integer> number = new LinkedList<>();
-
-        System.out.println(number.include(1));
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        number.insertBefore(3 , 5);
+        number.insertAfter(3,5);
     }
 }
