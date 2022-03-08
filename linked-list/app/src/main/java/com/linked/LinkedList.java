@@ -94,8 +94,8 @@ public class LinkedList<T>{
             }
         }catch (Exception e){
             System.err.println(e.getMessage());
+            return (T) "Element not found";
         }
-        return (T) "Element not found";
     }
 
     @Override
