@@ -8,7 +8,116 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
     @Test
-    void lengthK(){
-
+    void insertTest(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        String test = "{ 4 } -> { 3 } -> { 2 } -> { 1 } -> { NULL }";
+        assertEquals(test ,number.toString());
     }
+
+    @Test
+    void addBeforeTest(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        number.insertBefore(3,5);
+        String test = "{ 4 } -> { 5 } -> { 3 } -> { 2 } -> { 1 } -> { NULL }";
+        assertEquals(test ,number.toString());
+    }
+    @Test
+    void addAfterTest(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        number.insertAfter(3,5);
+        String test = "{ 4 } -> { 3 } -> { 5 } -> { 2 } -> { 1 } -> { NULL }";
+        assertEquals(test ,number.toString());
+    }
+
+    @Test
+    void appendTest(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        number.append(5);
+        String test = "{ 4 } -> { 3 } -> { 2 } -> { 1 } -> { 5 } -> { NULL }";
+        assertEquals(test ,number.toString());
+    }
+
+    @Test
+    void appendMultipleTest(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        number.append(5);
+        number.append(6);
+        number.append(7);
+        String test = "{ 4 } -> { 3 } -> { 2 } -> { 1 } -> { 5 } -> { 6 } -> { 7 } -> { NULL }";
+        assertEquals(test ,number.toString());
+    }
+    @Test
+    void includeTest(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        boolean rec = number.include(5);
+        assertFalse(rec);
+    }
+
+    @Test
+    void kMoreThanLength(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        String test = String.valueOf(number.kthFromEnd(10));
+        assertEquals("Element not found" ,test);
+    }
+
+    @Test
+    void kSameAsLen(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        String test = String.valueOf(number.kthFromEnd(4));
+        assertEquals("Element not found" ,test);
+    }
+
+    @Test
+    void kIsNeg(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        String test = String.valueOf(number.kthFromEnd(-4));
+        assertEquals("Element not found" ,test);
+    }
+    @Test
+    void arrSizeOne(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        assertEquals(3,number.kthFromEnd(2));
+    }
+
+
 }
