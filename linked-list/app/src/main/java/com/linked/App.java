@@ -14,5 +14,7 @@ public class App {
         number.insert(4);
         number.insertBefore(3 , 5);
         number.insertAfter(3,5);
+        System.out.println(number);
+        System.out.println(number.kthFromEnd(3));
     }
 }
