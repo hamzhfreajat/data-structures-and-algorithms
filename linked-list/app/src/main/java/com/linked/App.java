@@ -7,14 +7,43 @@ public class App {
 
 
     public static void main(String[] args) {
-        LinkedList<Integer> number = new LinkedList<>();
-        number.insert(1);
-        number.insert(2);
-        number.insert(3);
-        number.insert(4);
-        number.insertBefore(3 , 5);
-        number.insertAfter(3,5);
-        System.out.println(number);
-        System.out.println(number.kthFromEnd(3));
+        LinkedList<Integer> number1 = new LinkedList<>();
+        number1.insert(2);
+        number1.insert(3);
+        number1.insert(1);
+        System.out.println(number1);
+        LinkedList<Integer> number2 = new LinkedList<>();
+
+        number2.insert(4);
+        number2.insert(9);
+        number2.insert(5);
+
+        System.out.println(number2);
+        System.out.println(zipLists(number1 , number2));
+    }
+
+    public static LinkedList zipLists(LinkedList number1 , LinkedList number2){
+        LinkedList<Integer> number3 = new LinkedList<Integer>();
+        Node current1 = number1.head;
+        Node current2 = number2.head;
+        while (current1 != null || current2 != null ){
+            if (current1 == null){
+
+                    number3.append((Integer) current2.value);
+                    current2 = current2.next;
+                    continue;
+                }
+            if (current2 == null){
+                number3.append((Integer) current1.value);
+                current1 =current1.next;
+                continue;
+            }
+
+                number3.append((Integer) current1.value);
+                number3.append((Integer) current2.value);
+                current1 =current1.next;
+                current2 = current2.next;
+        }
+        return number3;
     }
 }
