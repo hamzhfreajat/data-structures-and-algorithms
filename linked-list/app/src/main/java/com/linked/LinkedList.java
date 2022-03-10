@@ -35,21 +35,24 @@ public class LinkedList<T>{
     }
 
     public void append(T value) {
-//        Node pointer = this.head;
-//        while (pointer != null) {
-//            if (pointer.next == null) {
-//                Node newNode = new Node(value);
-//                pointer.next = newNode;
-//                newNode.next = null;
-//                break;
-//            }
-//            pointer = pointer.next;
-//        }
-        Node<T> current = this.tail;
-        Node<T> newNode = new Node<>(value);
-        newNode.previous = current ;
-        current.next = newNode;
-        this.tail = newNode;
+        Node pointer = this.head;
+        if (pointer == null){
+            insert(value);
+        }
+        while (pointer != null) {
+            if (pointer.next == null) {
+                Node newNode = new Node(value);
+                pointer.next = newNode;
+                newNode.next = null;
+                break;
+            }
+            pointer = pointer.next;
+        }
+//        Node<T> current = this.tail;
+//        Node<T> newNode = new Node<>(value);
+//        newNode.previous = current ;
+//        current.next = newNode;
+//        this.tail = newNode;
     }
     public void insertBefore( T index, T value){
         Node<T> current = this.head;
@@ -97,6 +100,8 @@ public class LinkedList<T>{
             return (T) "Element not found";
         }
     }
+
+
 
     @Override
     public String toString() {
