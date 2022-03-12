@@ -3,10 +3,64 @@
  */
 package com.linked;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
+    // Code challenge 5
+    @Test
+    void emptyLinkedList(){
+        LinkedList<Integer> number1 = new LinkedList<>();
+        assertNotNull(number1);
+    }
+
+    @Test
+    void insertIntoLinkedList(){
+        LinkedList<Integer> number1 = new LinkedList<>();
+        number1.insert(1);
+        String test = String.valueOf(number1);
+        String str = "{ 1 } -> { NULL }" ;
+        assertEquals(str ,test );
+    }
+    @Test
+    void headCheckLinkedList(){
+        LinkedList<Integer> number1 = new LinkedList<>();
+        number1.insert(1);
+        String test = String.valueOf(number1.head.value);
+        String res = "1";
+    }
+    @Test
+    void insertMultipleIntoLinkedList(){
+        LinkedList<Integer> number1 = new LinkedList<>();
+        number1.insert(1);
+        number1.insert(2);
+        number1.insert(3);
+        String test = String.valueOf(number1);
+        String str = "{ 3 } -> { 2 } -> { 1 } -> { NULL }" ;
+        assertEquals(str ,test );
+    }
+    @Test
+    void includeTrueTest(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        boolean rec = number.include(5);
+        assertFalse(rec);
+    }
+    @Test
+    void includeFalseTest(){
+        LinkedList<Integer> number = new LinkedList<>();
+        number.insert(1);
+        number.insert(2);
+        number.insert(3);
+        number.insert(4);
+        boolean rec = number.include(3);
+        assertTrue(rec);
+    }
+
     @Test
     void insertTest(){
         LinkedList<Integer> number = new LinkedList<>();
@@ -18,6 +72,7 @@ class AppTest {
         assertEquals(test ,number.toString());
     }
 
+    // Code challange 6
     @Test
     void addBeforeTest(){
         LinkedList<Integer> number = new LinkedList<>();
@@ -66,17 +121,7 @@ class AppTest {
         String test = "{ 4 } -> { 3 } -> { 2 } -> { 1 } -> { 5 } -> { 6 } -> { 7 } -> { NULL }";
         assertEquals(test ,number.toString());
     }
-    @Test
-    void includeTest(){
-        LinkedList<Integer> number = new LinkedList<>();
-        number.insert(1);
-        number.insert(2);
-        number.insert(3);
-        number.insert(4);
-        boolean rec = number.include(5);
-        assertFalse(rec);
-    }
-
+ // Code challange 7
     @Test
     void kMoreThanLength(){
         LinkedList<Integer> number = new LinkedList<>();
@@ -118,6 +163,8 @@ class AppTest {
         number.insert(4);
         assertEquals(3,number.kthFromEnd(2));
     }
+
+    // Code challenge 8
     @Test
     void sameLengthZipList(){
         LinkedList<Integer> number1 = new LinkedList<>();
