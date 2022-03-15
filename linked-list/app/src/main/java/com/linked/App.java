@@ -7,19 +7,10 @@ public class App {
 
 
     public static void main(String[] args) {
-        LinkedList<Integer> number1 = new LinkedList<>();
-        number1.insert(2);
-        number1.insert(3);
-        number1.insert(1);
-        System.out.println(number1);
-        LinkedList<Integer> number2 = new LinkedList<>();
 
-        number2.insert(4);
-        number2.insert(9);
-        number2.insert(5);
 
-        System.out.println(number2);
-        System.out.println(zipLists(number1 , number2));
+//        System.out.println(number2);
+//        System.out.println(zipLists(number1 , number2));
     }
 
     public static LinkedList zipLists(LinkedList number1 , LinkedList number2){
@@ -46,4 +37,6 @@ public class App {
         }
         return number3;
     }
+
+
 }
