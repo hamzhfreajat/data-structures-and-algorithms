@@ -12,7 +12,12 @@ The approach that I used is about next pointer that check the next node so we ca
 
 
 ## Whiteboard Process
-![Drag WhiteBord](app/src/main/resources/Whiteboard-2.png)
+## Append
+![Drag WhiteBord](app/src/main/resources/append.png)
+## Insert before
+![Drag WhiteBord](app/src/main/resources/inser-before.png)
+## Insert after
+![Drag WhiteBord](app/src/main/resources/insert-after.png)
 ## Challenge Summary
 Get the value of a given index using tail instead of head 
 
