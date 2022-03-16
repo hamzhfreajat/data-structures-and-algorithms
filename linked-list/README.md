@@ -1,6 +1,12 @@
 # Singly Linked List
 ## Whiteboard Process
-![Drag WhiteBord](app/src/main/resources/Whiteboard-1.png)
+## Append
+![Drag WhiteBord](app/src/main/resources/append.png)
+## Insert before
+![Drag WhiteBord](app/src/main/resources/inser-before.png)
+## Insert after
+![Drag WhiteBord](app/src/main/resources/insert-after.png)
+
 ## Challenge Summary
 Linked list we can decribe it like  List is a sequence of `Nodes`
 each Node references the next Node in the link. Its how to structure your data .  My challange about create linked list that you can insert value to it then you can check for any value in the list if it included 
@@ -12,12 +18,8 @@ The approach that I used is about next pointer that check the next node so we ca
 
 
 ## Whiteboard Process
-## Append
-![Drag WhiteBord](app/src/main/resources/append.png)
-## Insert before
-![Drag WhiteBord](app/src/main/resources/inser-before.png)
-## Insert after
-![Drag WhiteBord](app/src/main/resources/insert-after.png)
+![Drag WhiteBord](app/src/main/resources/Whiteboard-2.png)
+
 ## Challenge Summary
 Get the value of a given index using tail instead of head 
 
