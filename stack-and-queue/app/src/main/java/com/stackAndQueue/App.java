@@ -4,6 +4,7 @@
 package com.stackAndQueue;
 
 
+import com.stackAndQueue.queue.structure.PseudoQueue;
 import com.stackAndQueue.queue.structure.Queue;
 import com.stackAndQueue.stack.structure.Stack;
 
@@ -11,22 +12,29 @@ public class App {
 
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        System.out.println(stack);
-        stack.pop();
-        System.out.println(stack);
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(1);
+//        stack.push(2);
+//        stack.push(3);
+//        System.out.println(stack);
+//        stack.pop();
+//        System.out.println(stack);
 //        System.out.println(stack.peek());
 
-        Queue<Integer> queue  = new Queue<>();
+        PseudoQueue<Integer> queue  = new PseudoQueue<>();
         queue.enqueue(1);
         queue.enqueue(2);
-        queue.enqueue(3);
-        System.out.println(queue);
-        queue.dequeue();
-        System.out.println(queue.peek());
+        System.out.println(queue.enqueue(3));
+        System.out.println(queue.enqueue(4));
+        System.out.println(queue.enqueue(6));
+        System.out.println(queue.dequeue());
+        System.out.println(queue.enqueue(7));
+        System.out.println(queue.dequeue());
+
+
+//        System.out.println(queue);
+//        queue.dequeue();
+//        System.out.println(queue.peek());
 
     }
 }

@@ -11,6 +11,10 @@ public class Stack <T>{
         this.top = null;
     }
 
+    public StackNode<T> getTop() {
+        return top;
+    }
+
     public StackNode<T> push(T value){
         StackNode<T> newStackNode = new StackNode<>(value);
         if(empty()){

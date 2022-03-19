@@ -40,3 +40,24 @@ Make Stack and Queue class from scratch the make methods that make a user can ma
 - empty
 
   Check if the stack is empty 
+
+
+## Code Challenge 11 
+
+### Challenge Summary
+<!-- Description of the challenge -->
+
+#### Whiteboard Process
+![Whiteboard Process](./app/src/main/resources/Whiteboard.png)
+
+#### Approach & Efficiency
+Reverse stack one in stack two then we can use Stack class to manipulate Queue . 
+
+#### Solution
+Put this code in App java file  
+
+    PseudoQueue<Integer> queue  = new PseudoQueue<>();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    System.out.println(queue.enqueue(3));
+    System.out.println(queue.dequeue());

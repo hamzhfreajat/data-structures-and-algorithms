@@ -4,6 +4,7 @@
 package com.stackAndQueue;
 
 import com.stackAndQueue.queue.data.QueueNode;
+import com.stackAndQueue.queue.structure.PseudoQueue;
 import com.stackAndQueue.queue.structure.Queue;
 import com.stackAndQueue.stack.data.StackNode;
 import com.stackAndQueue.stack.structure.Stack;
@@ -184,5 +185,36 @@ class AppTest {
         String actual = exception.getMessage();
         assertEquals(exp , actual);
     }
+
+
+    // Code challenge  11
+
+    @Test
+    public void happyPathTest (){
+        PseudoQueue<Integer> queue  = new PseudoQueue<>();
+        assertEquals(1 , queue.enqueue(1));
+    }
+
+    @Test
+    public void expectedFailureTest(){
+        PseudoQueue<Integer> queue  = new PseudoQueue<>();
+        Exception exception = assertThrows(Exception.class, () -> {
+            queue.dequeue();
+        });
+        String exep = exception.getMessage();
+        assertEquals( "The Stack is empty",exep);
+    }
+    @Test
+    public void edgeCaseTest(){
+        PseudoQueue<Integer> queue  = new PseudoQueue<>();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(4);
+        queue.dequeue();
+        queue.enqueue(4);
+        assertEquals( 3, queue.dequeue());
+    }
+
 
 }
