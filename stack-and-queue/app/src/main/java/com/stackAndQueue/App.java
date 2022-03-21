@@ -4,8 +4,7 @@
 package com.stackAndQueue;
 
 
-import com.stackAndQueue.queue.structure.PseudoQueue;
-import com.stackAndQueue.queue.structure.Queue;
+import com.stackAndQueue.queue.structure.*;
 import com.stackAndQueue.stack.structure.Stack;
 
 public class App {
@@ -21,20 +20,33 @@ public class App {
 //        System.out.println(stack);
 //        System.out.println(stack.peek());
 
-        PseudoQueue<Integer> queue  = new PseudoQueue<>();
-        queue.enqueue(1);
-        queue.enqueue(2);
-        System.out.println(queue.enqueue(3));
-        System.out.println(queue.enqueue(4));
-        System.out.println(queue.enqueue(6));
-        System.out.println(queue.dequeue());
-        System.out.println(queue.enqueue(7));
-        System.out.println(queue.dequeue());
+//        PseudoQueue<Integer> queue  = new PseudoQueue<>();
+//        queue.enqueue(1);
+//        queue.enqueue(2);
+//        System.out.println(queue.enqueue(3));
+//        System.out.println(queue.enqueue(4));
+//        System.out.println(queue.enqueue(6));
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.enqueue(7));
+//        System.out.println(queue.dequeue());
 
 
 //        System.out.println(queue);
 //        queue.dequeue();
 //        System.out.println(queue.peek());
+
+        Animal cat = new Cat("cat");
+        Animal dog = new Dog("dog");
+
+        AnimalShelter animalShelter = new AnimalShelter();
+        System.out.println(animalShelter.enqueue(cat));
+        System.out.println( animalShelter.enqueue(dog));
+        System.out.println( animalShelter.enqueue(dog));
+        System.out.println( animalShelter.enqueue(dog));
+        System.out.println( animalShelter.enqueue(dog));
+        System.out.println(animalShelter.dequeue("cat"));
+        System.out.println(animalShelter);
+
 
     }
 }
