@@ -4,8 +4,7 @@
 package com.stackAndQueue;
 
 import com.stackAndQueue.queue.data.QueueNode;
-import com.stackAndQueue.queue.structure.PseudoQueue;
-import com.stackAndQueue.queue.structure.Queue;
+import com.stackAndQueue.queue.structure.*;
 import com.stackAndQueue.stack.data.StackNode;
 import com.stackAndQueue.stack.structure.Stack;
 import org.junit.jupiter.api.Test;
@@ -216,5 +215,45 @@ class AppTest {
         assertEquals( 3, queue.dequeue());
     }
 
+    // Code Chllange 12
+    @Test
+    public void animalTest(){
+        Animal cat = new Cat("cat");
+        Animal dog = new Dog("dog");
+
+        AnimalShelter animalShelter = new AnimalShelter();
+        animalShelter.enqueue(cat);
+        String actual = String.valueOf(animalShelter.enqueue(dog));
+        String exp = "QueueNode{value=dog, next=null}" ;
+
+      assertEquals(exp , actual );
+    }
+
+
+    @Test
+    public void edgeCaseAnimalTest(){
+        Animal cat = new Cat("cat");
+        Animal dog = new Dog("dog");
+
+        AnimalShelter animalShelter = new AnimalShelter();
+        animalShelter.enqueue(dog);
+        animalShelter.enqueue(dog);
+        animalShelter.enqueue(cat);
+        animalShelter.enqueue(dog);
+        String actual = String.valueOf(animalShelter.dequeue("cat"));
+        String exp = "QueueNode{value=dog, next=QueueNode{value=dog, next=QueueNode{value=dog, next=null}}}" ;
+
+        assertEquals(exp , actual );
+    }
+
+    @Test
+    public void expectedFailureaNIMALTest(){
+        AnimalShelter animalShelter = new AnimalShelter();
+        Exception exception = assertThrows(Exception.class, () -> {
+            animalShelter.dequeue("cat");
+        });
+        String exep = exception.getMessage();
+        assertEquals( "The Queue is empty",exep);
+    }
 
 }
