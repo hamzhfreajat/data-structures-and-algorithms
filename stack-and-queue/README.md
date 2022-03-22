@@ -45,7 +45,7 @@ Make Stack and Queue class from scratch the make methods that make a user can ma
 ## Code Challenge 11 
 
 ### Challenge Summary
-<!-- Description of the challenge -->
+Build queue using two stack 
 
 #### Whiteboard Process
 ![Whiteboard Process](./app/src/main/resources/Whiteboard.png)
@@ -61,3 +61,30 @@ Put this code in App java file
     queue.enqueue(2);
     System.out.println(queue.enqueue(3));
     System.out.println(queue.dequeue());
+
+
+## Code Challenge 12 
+# Challenge Summary
+Create a function that do queue for just cat and dog object (First-in, First out Animal Shelter).
+
+## Whiteboard Process
+![Whiteboard Process](./app/src/main/resources/Whiteboard-2.png)
+
+## Approach & Efficiency
+Make two pointer then remove the value by make previous node points to the next .
+
+## Solution
+Put this code in App java file to run the code and see how its work : 
+
+        Animal cat = new Cat("cat");
+        Animal dog = new Dog("dog");
+        AnimalShelter animalShelter = new AnimalShelter();
+        System.out.println(animalShelter.enqueue(cat));
+        System.out.println( animalShelter.enqueue(dog));
+        System.out.println( animalShelter.enqueue(dog));
+        System.out.println( animalShelter.enqueue(dog));
+        System.out.println( animalShelter.enqueue(dog));
+        System.out.println(animalShelter.dequeue("cat"));
+        System.out.println(animalShelter);
+
+
