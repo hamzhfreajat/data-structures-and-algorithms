@@ -87,4 +87,20 @@ Put this code in App java file to run the code and see how its work :
         System.out.println(animalShelter.dequeue("cat"));
         System.out.println(animalShelter);
 
+## Code Challenge 13
+# Challenge Summary
+a function called validate brackets that check if a string have brackets in valid way .
+
+## Whiteboard Process
+![Whiteboard Process](./app/src/main/resources/Whiteboard-3.png)
+
+## Approach & Efficiency
+Using stack as last-in first-out to do the matching between open bracket and close bracket 
+
+## Solution
+You can invoke the function from main using : 
+
+    System.out.println(validateBrackets("[}"));
+
+
 

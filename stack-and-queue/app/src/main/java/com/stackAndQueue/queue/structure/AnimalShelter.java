@@ -29,8 +29,13 @@ public class AnimalShelter<T> {
         if (empty()){
             throw new NoSuchElementException("The Queue is empty");
         }else{
-            while (current1 != null){
+            if(String.valueOf(current1.getValue()) == pref){
+               front = front.getNext();
+               current1.setNext(null);
+                return current1;
+            }
 
+            while (current1 != null){
                 if (current1.getNext() != null){
                     if(String.valueOf(current1.getNext().getValue()) == pref){
                         current2 = current2.getNext();

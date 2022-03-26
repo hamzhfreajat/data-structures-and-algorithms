@@ -35,18 +35,38 @@ public class App {
 //        queue.dequeue();
 //        System.out.println(queue.peek());
 
-        Animal cat = new Cat("cat");
-        Animal dog = new Dog("dog");
+//        Animal cat = new Cat("cat");
+//        Animal dog = new Dog("dog");
+//
+//        AnimalShelter<Animal> animalShelter = new AnimalShelter<>();
+//        System.out.println(animalShelter.enqueue(dog));
+//        System.out.println(animalShelter.enqueue(cat));
+//        System.out.println(animalShelter.dequeue("dog"));
 
-        AnimalShelter animalShelter = new AnimalShelter();
-        System.out.println(animalShelter.enqueue(cat));
-        System.out.println( animalShelter.enqueue(dog));
-        System.out.println( animalShelter.enqueue(dog));
-        System.out.println( animalShelter.enqueue(dog));
-        System.out.println( animalShelter.enqueue(dog));
-        System.out.println(animalShelter.dequeue("cat"));
-        System.out.println(animalShelter);
+        System.out.println(validateBrackets("[}"));
 
 
+
+
+    }
+
+    public static boolean validateBrackets(String input_str) {
+
+        Stack<Character> stack = new Stack<Character>();
+        for (char charecter : input_str.toCharArray()) {
+            if (charecter == '(' || charecter == '{' || charecter == '[') {
+                stack.push(charecter);
+            } else {
+                if(!stack.empty()) {
+                    char top = (Character) stack.peek();
+                    if(charecter == ')' && top == '(' ||
+                            charecter == '}' && top == '{' ||
+                            charecter == ']' && top == '['){
+                        stack.pop();
+                    }
+                }else if(charecter == ')' || charecter == '}' || charecter == ']') return false;
+            }
+        }
+        return stack.empty();
     }
 }
