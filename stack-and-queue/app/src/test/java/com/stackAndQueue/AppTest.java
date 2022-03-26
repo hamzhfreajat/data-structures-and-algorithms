@@ -256,4 +256,21 @@ class AppTest {
         assertEquals( "The Queue is empty",exep);
     }
 
+    @Test
+    public void validateBracketsTest(){
+       boolean actual = App.validateBrackets("{}{Code}[Fellows](())");
+       assertEquals(true , actual);
+    }
+    @Test
+    public void validateBracketsEdgeTest(){
+        boolean actual = App.validateBrackets("[}");
+        assertEquals(false , actual);
+    }
+
+    @Test
+    public void validateBracketsFail(){
+        boolean actual = App.validateBrackets("}");
+        assertEquals(false , actual);
+    }
+
 }
