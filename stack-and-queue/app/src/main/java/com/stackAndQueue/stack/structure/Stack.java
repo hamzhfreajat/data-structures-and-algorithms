@@ -47,6 +47,20 @@ public class Stack <T>{
         return top;
     }
 
+    public int getMax(){
+        StackNode pointer = top;
+        int max = (int) pointer.getValue();
+        while (pointer.getNext() != null){
+            int firstValue = (int) pointer.getValue();
+            int secondValue = (int) pointer.getNext().getValue();
+            if (firstValue < secondValue){
+                max = secondValue;
+            }
+            pointer = pointer.getNext();
+        }
+        return max;
+    }
+
     @Override
         public String toString() {
             StackNode<T> pointer = top;

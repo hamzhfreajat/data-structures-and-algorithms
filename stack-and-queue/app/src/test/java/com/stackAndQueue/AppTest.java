@@ -7,7 +7,13 @@ import com.stackAndQueue.queue.data.QueueNode;
 import com.stackAndQueue.queue.structure.*;
 import com.stackAndQueue.stack.data.StackNode;
 import com.stackAndQueue.stack.structure.Stack;
+import com.stackAndQueue.tree.data.BTNode;
+import com.stackAndQueue.tree.structure.BinarySearchTree;
+import com.stackAndQueue.tree.structure.BinaryTree;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
@@ -271,6 +277,107 @@ class AppTest {
     public void validateBracketsFail(){
         boolean actual = App.validateBrackets("}");
         assertEquals(false , actual);
+    }
+
+    // Code Challange 15
+
+    @Test
+    void testEmptyTree(){
+        BinaryTree<String> binaryTree = new BinaryTree<>();
+        assertNotNull(binaryTree);
+    }
+    @Test
+    void testSingleRootTree(){
+        BinaryTree<String> binaryTree = new BinaryTree<>();
+        binaryTree.setRoot(new BTNode<>("h"));
+        String exp = String.valueOf(binaryTree.getRoot());
+        assertEquals("BTNode{data=h, left=null, right=null}" ,exp);
+    }
+
+    @Test
+    void testLeftRightRootTree(){
+        BinaryTree<String> binaryTree = new BinaryTree<>();
+        binaryTree.setRoot(new BTNode<>("h"));
+        binaryTree.getRoot().setLeft(new BTNode<>("h"));
+        binaryTree.getRoot().setRight(new BTNode<>("a"));
+        String exp = String.valueOf(binaryTree.getRoot());
+        assertEquals("BTNode{data=h, left=BTNode{data=h, left=null, right=null}, right=BTNode{data=a, left=null, right=null}}" ,exp);
+    }
+    @Test
+    void testLeftRightRootSearchTree(){
+        BinarySearchTree<Integer> binarySearchTree= new BinarySearchTree<>();
+        binarySearchTree.add(100);
+        binarySearchTree.add(200);
+        binarySearchTree.add(80);
+        assertEquals("Node{data=100, leftNode=Node{data=80, leftNode=null, rightNode=null}, rightNode=Node{data=200, leftNode=null, rightNode=null}}" ,binarySearchTree.getRoot().toString());
+    }
+
+    @Test
+    void testINORDERTree(){
+        BinaryTree<String> binaryTree = new BinaryTree<>();
+        binaryTree.setRoot(new BTNode<>("h"));
+        // level 1
+        binaryTree.getRoot().setLeft(new BTNode<>("m"));
+        binaryTree.getRoot().setRight(new BTNode<>("a"));
+
+
+         ArrayList<String> arrayList = binaryTree.traverse(BinaryTree.TraversalOrder.INORDER);
+         ArrayList<String> arrayList1 = new ArrayList<>();
+        arrayList1.add("m");
+        arrayList1.add("h");
+        arrayList1.add("a");
+        String arr1 = String.valueOf(arrayList);
+        String arr2 = String.valueOf(arrayList1);
+
+        assertEquals(arr2, arr1);
+    }
+
+    @Test
+    void testPREORDERTree(){
+        BinaryTree<String> binaryTree = new BinaryTree<>();
+        binaryTree.setRoot(new BTNode<>("h"));
+        // level 1
+        binaryTree.getRoot().setLeft(new BTNode<>("m"));
+        binaryTree.getRoot().setRight(new BTNode<>("a"));
+
+
+        ArrayList<String> arrayList = binaryTree.traverse(BinaryTree.TraversalOrder.PREORDER);
+        ArrayList<String> arrayList1 = new ArrayList<>();
+        arrayList1.add("h");
+        arrayList1.add("m");
+        arrayList1.add("a");
+        String arr1 = String.valueOf(arrayList);
+        String arr2 = String.valueOf(arrayList1);
+
+        assertEquals(arr2, arr1);
+    }
+    @Test
+    void testPOSTORDERTree(){
+        BinaryTree<String> binaryTree = new BinaryTree<>();
+        binaryTree.setRoot(new BTNode<>("h"));
+        // level 1
+        binaryTree.getRoot().setLeft(new BTNode<>("m"));
+        binaryTree.getRoot().setRight(new BTNode<>("a"));
+
+
+        ArrayList<String> arrayList = binaryTree.traverse(BinaryTree.TraversalOrder.POSTORDER);
+        ArrayList<String> arrayList1 = new ArrayList<>();
+        arrayList1.add("m");
+        arrayList1.add("a");
+        arrayList1.add("h");
+        String arr1 = String.valueOf(arrayList);
+        String arr2 = String.valueOf(arrayList1);
+
+        assertEquals(arr2, arr1);
+    }
+
+    @Test
+    void testContainSearchTree(){
+        BinarySearchTree<Integer> binarySearchTree= new BinarySearchTree<>();
+        binarySearchTree.add(100);
+        binarySearchTree.add(200);
+        binarySearchTree.add(80);
+        assertTrue(binarySearchTree.contains(80));
     }
 
 }
