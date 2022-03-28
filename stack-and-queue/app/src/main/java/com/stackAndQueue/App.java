@@ -6,16 +6,19 @@ package com.stackAndQueue;
 
 import com.stackAndQueue.queue.structure.*;
 import com.stackAndQueue.stack.structure.Stack;
+import com.stackAndQueue.tree.data.BTNode;
+import com.stackAndQueue.tree.structure.BinarySearchTree;
+import com.stackAndQueue.tree.structure.BinaryTree;
 
 public class App {
 
 
     public static void main(String[] args) {
 //        Stack<Integer> stack = new Stack<>();
-//        stack.push(1);
+//        stack.push(5);
 //        stack.push(2);
 //        stack.push(3);
-//        System.out.println(stack);
+//        System.out.println(stack.getMax());
 //        stack.pop();
 //        System.out.println(stack);
 //        System.out.println(stack.peek());
@@ -43,9 +46,37 @@ public class App {
 //        System.out.println(animalShelter.enqueue(cat));
 //        System.out.println(animalShelter.dequeue("dog"));
 
-        System.out.println(validateBrackets("[}"));
+//        System.out.println(validateBrackets("[}"));
 
 
+// Binary tree
+        BinaryTree<String> binaryTree = new BinaryTree<>();
+        binaryTree.setRoot(new BTNode<>("h"));
+        // level 1
+        binaryTree.getRoot().setLeft(new BTNode<>("h"));
+        binaryTree.getRoot().setRight(new BTNode<>("a"));
+
+        // level 2
+        binaryTree.getRoot().getLeft().setLeft(new BTNode<>("m"));
+        binaryTree.getRoot().getRight().setLeft(new BTNode<>("z"));
+//        binaryTree.levelOrderTraversalLoop();
+        System.out.println("\n");
+        System.out.println("POSTORDER \n" + binaryTree.traverse(  BinaryTree.TraversalOrder.POSTORDER));
+        System.out.println("INORDER");
+        System.out.println(binaryTree.traverse(BinaryTree.TraversalOrder.INORDER));;
+        System.out.println("PREORDER");
+        System.out.println(binaryTree.traverse(BinaryTree.TraversalOrder.PREORDER));;
+        System.out.println("\n\nBinary search tree");
+
+// Binary search tree
+        BinarySearchTree<Integer> binarySearchTree= new BinarySearchTree<>();
+        binarySearchTree.add(100);
+        binarySearchTree.add(200);
+        binarySearchTree.add(80);
+        binarySearchTree.add(70);
+        binarySearchTree.add(90);
+        binarySearchTree.traverse(BinarySearchTree.TraversalOrder.INORDER);
+        System.out.println(binarySearchTree.contains(90));
 
 
     }

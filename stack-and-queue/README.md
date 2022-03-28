@@ -103,4 +103,42 @@ You can invoke the function from main using :
     System.out.println(validateBrackets("[}"));
 
 
+## Code Challange 15
+## Trees
+The tree one of the method of data structure that improve efficiency of our code , In my code I covered Binary Trees, Binary Search Trees
+
+### Challenge
+Node
+Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
+
+#### Binary Tree
+Create a Binary Tree class
+Define a method for each of the depth first traversals:
+- pre order
+- in order
+- post order which returns an array of the values, ordered appropriately.
+
+### Binary Search Tree
+Create a Binary Search Tree class
+This class should be a sub-class (or your languages equivalent) of the Binary Tree Class, with the following additional methods:
+- Add
+- Contains
+
+### Approach & Efficiency
+
+- In binary search tree the search is Big O `log(n)` which is more efficient than the first one which is `O(n)`
+
+### API
+#### Binary Tree
+- traverse
+To traverse the tree by given the order you won't (pre-order , in-order , post-order )
+- levelOrderTraversalLoop
+Traverse in the tree and print out a value depend on the level and from left to right .  
+
+### Binary Search Tree
+- Add
+This method used to add value to search tree
+- Contains
+This method accept a value then return boolean depend on if its exist or not .  
+
 
