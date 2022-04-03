@@ -73,10 +73,15 @@ public class App {
         binarySearchTree.add(100);
         binarySearchTree.add(200);
         binarySearchTree.add(80);
-        binarySearchTree.add(70);
+        binarySearchTree.add(500);
         binarySearchTree.add(90);
+        // Find the maximum number
+        System.out.println("Maximum number is => " + binarySearchTree.findMax());
         binarySearchTree.traverse(BinarySearchTree.TraversalOrder.INORDER);
         System.out.println(binarySearchTree.contains(90));
+
+
+
 
 
     }

@@ -142,3 +142,17 @@ This method used to add value to search tree
 This method accept a value then return boolean depend on if its exist or not .  
 
 
+## Challenge 16 Max of binary tree
+We will find the maximum value stored in the tree. we can assume that the values stored in the Binary Tree will be numeric.
+
+
+## Whiteboard Process
+![Whiteboard Process](./app/src/main/resources/Whiteboard-4.png)
+
+## Approach & Efficiency
+The approach I used it's mainly depends on the idea of binary tree that the maximum will be on the right so i will iterate to the right until I reach the maximum , The efficiency will extremely increase because we don't iterate through all element. 
+
+## Solution
+- Create instance of `binarySearchTree` class 
+- Call the method `findMax`
+

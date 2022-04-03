@@ -28,6 +28,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
+
     private void add(T data, Node<T> root) {
        if (data.compareTo(root.getData())< 0 ){
            if (root.getLeftNode() != null){
@@ -61,6 +62,18 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 break;
             default:
         }
+    }
+
+    public T findMax()
+    {
+        if (root == null)
+            System.out.println("The node is empty");
+
+        Node<T> current = root;
+        while (current.getRightNode() != null)
+            current = current.getRightNode();
+
+        return (current.getData());
     }
 
     private void inOrder(Node<T> treeNode) {
