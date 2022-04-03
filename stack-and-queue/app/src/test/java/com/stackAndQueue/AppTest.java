@@ -380,4 +380,15 @@ class AppTest {
         assertTrue(binarySearchTree.contains(80));
     }
 
+    // Maximaum number unit test
+    @Test
+    void testMaxSearchTree(){
+        BinarySearchTree<Integer> binarySearchTree= new BinarySearchTree<>();
+        binarySearchTree.add(100);
+        binarySearchTree.add(200);
+        binarySearchTree.add(80);
+        int actual = binarySearchTree.findMax();
+        assertEquals(200 , actual);
+    }
+
 }
