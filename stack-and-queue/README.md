@@ -150,9 +150,39 @@ We will find the maximum value stored in the tree. we can assume that the values
 ![Whiteboard Process](./app/src/main/resources/Whiteboard-4.png)
 
 ## Approach & Efficiency
-The approach I used it's mainly depends on the idea of binary tree that the maximum will be on the right so i will iterate to the right until I reach the maximum , The efficiency will extremely increase because we don't iterate through all element. 
+The approach I used it's mainly used the recursion to traverse each element and compare it with the maximum number .
 
 ## Solution
-- Create instance of `binarySearchTree` class 
-- Call the method `findMax`
 
+        BinaryTree<Integer> binaryTree1 = new BinaryTree<>();
+        binaryTree1.setRoot(new BTNode<Integer>(1));
+        // level 1
+        binaryTree1.getRoot().setLeft(new BTNode<Integer>(2));
+        binaryTree1.getRoot().setRight(new BTNode<Integer>(800));
+
+        // level 2
+        binaryTree1.getRoot().getLeft().setLeft(new BTNode<Integer>(350));
+        binaryTree1.getRoot().getRight().setLeft(new BTNode<Integer>(600));
+        System.out.println(binaryTree1.findMax(binaryTree1.getRoot()));;
+
+
+
+## Challenge 17 
+a function called breadth first that return list of all values in the tree, in the order they were encountered
+
+## Whiteboard Process
+![Whiteboard Process](./app/src/main/resources/Whiteboard-5.png)
+
+## Approach & Efficiency
+My approach is to add the element in the tree to the queue by position the first is root then the left then the right then we can extract them from the queue & the efficiency is increase by doing it using queue
+## Solution
+          BinaryTree<String> binaryTree = new BinaryTree<>();
+          binaryTree.setRoot(new BTNode<>(5));
+          // level 1
+          binaryTree.getRoot().setLeft(new BTNode<Integer>(1));
+          binaryTree.getRoot().setRight(new BTNode<Integer>(15));
+  
+          // level 2
+          binaryTree.getRoot().getLeft().setLeft(new BTNode<Integer>(15));
+          binaryTree.getRoot().getRight().setLeft(new BTNode<Integer>(20));
+          System.out.println(binaryTree.treeBreadthFirst());

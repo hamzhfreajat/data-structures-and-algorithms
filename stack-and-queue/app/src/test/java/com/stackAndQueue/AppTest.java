@@ -289,19 +289,19 @@ class AppTest {
     @Test
     void testSingleRootTree(){
         BinaryTree<String> binaryTree = new BinaryTree<>();
-        binaryTree.setRoot(new BTNode<>("h"));
+        binaryTree.setRoot(new BTNode<Integer>(5));
         String exp = String.valueOf(binaryTree.getRoot());
-        assertEquals("BTNode{data=h, left=null, right=null}" ,exp);
+        assertEquals("BTNode{data=5, left=null, right=null}" ,exp);
     }
 
     @Test
     void testLeftRightRootTree(){
         BinaryTree<String> binaryTree = new BinaryTree<>();
-        binaryTree.setRoot(new BTNode<>("h"));
-        binaryTree.getRoot().setLeft(new BTNode<>("h"));
-        binaryTree.getRoot().setRight(new BTNode<>("a"));
+        binaryTree.setRoot(new BTNode<>(1));
+        binaryTree.getRoot().setLeft(new BTNode<>(2));
+        binaryTree.getRoot().setRight(new BTNode<>(3));
         String exp = String.valueOf(binaryTree.getRoot());
-        assertEquals("BTNode{data=h, left=BTNode{data=h, left=null, right=null}, right=BTNode{data=a, left=null, right=null}}" ,exp);
+        assertEquals("BTNode{data=1, left=BTNode{data=2, left=null, right=null}, right=BTNode{data=3, left=null, right=null}}" ,exp);
     }
     @Test
     void testLeftRightRootSearchTree(){
@@ -315,17 +315,17 @@ class AppTest {
     @Test
     void testINORDERTree(){
         BinaryTree<String> binaryTree = new BinaryTree<>();
-        binaryTree.setRoot(new BTNode<>("h"));
+        binaryTree.setRoot(new BTNode<>(1));
         // level 1
-        binaryTree.getRoot().setLeft(new BTNode<>("m"));
-        binaryTree.getRoot().setRight(new BTNode<>("a"));
+        binaryTree.getRoot().setLeft(new BTNode<>(2));
+        binaryTree.getRoot().setRight(new BTNode<>(3));
 
 
-         ArrayList<String> arrayList = binaryTree.traverse(BinaryTree.TraversalOrder.INORDER);
-         ArrayList<String> arrayList1 = new ArrayList<>();
-        arrayList1.add("m");
-        arrayList1.add("h");
-        arrayList1.add("a");
+         ArrayList<Integer> arrayList = binaryTree.traverse(BinaryTree.TraversalOrder.INORDER);
+         ArrayList<Integer> arrayList1 = new ArrayList<>();
+        arrayList1.add(2);
+        arrayList1.add(1);
+        arrayList1.add(3);
         String arr1 = String.valueOf(arrayList);
         String arr2 = String.valueOf(arrayList1);
 
@@ -335,17 +335,17 @@ class AppTest {
     @Test
     void testPREORDERTree(){
         BinaryTree<String> binaryTree = new BinaryTree<>();
-        binaryTree.setRoot(new BTNode<>("h"));
+        binaryTree.setRoot(new BTNode<>(1));
         // level 1
-        binaryTree.getRoot().setLeft(new BTNode<>("m"));
-        binaryTree.getRoot().setRight(new BTNode<>("a"));
+        binaryTree.getRoot().setLeft(new BTNode<>(2));
+        binaryTree.getRoot().setRight(new BTNode<>(3));
 
 
-        ArrayList<String> arrayList = binaryTree.traverse(BinaryTree.TraversalOrder.PREORDER);
-        ArrayList<String> arrayList1 = new ArrayList<>();
-        arrayList1.add("h");
-        arrayList1.add("m");
-        arrayList1.add("a");
+        ArrayList<Integer> arrayList = binaryTree.traverse(BinaryTree.TraversalOrder.PREORDER);
+        ArrayList<Integer> arrayList1 = new ArrayList<>();
+        arrayList1.add(1);
+        arrayList1.add(2);
+        arrayList1.add(3);
         String arr1 = String.valueOf(arrayList);
         String arr2 = String.valueOf(arrayList1);
 
@@ -354,17 +354,17 @@ class AppTest {
     @Test
     void testPOSTORDERTree(){
         BinaryTree<String> binaryTree = new BinaryTree<>();
-        binaryTree.setRoot(new BTNode<>("h"));
+        binaryTree.setRoot(new BTNode<>(1));
         // level 1
-        binaryTree.getRoot().setLeft(new BTNode<>("m"));
-        binaryTree.getRoot().setRight(new BTNode<>("a"));
+        binaryTree.getRoot().setLeft(new BTNode<>(2));
+        binaryTree.getRoot().setRight(new BTNode<>(3));
 
 
-        ArrayList<String> arrayList = binaryTree.traverse(BinaryTree.TraversalOrder.POSTORDER);
-        ArrayList<String> arrayList1 = new ArrayList<>();
-        arrayList1.add("m");
-        arrayList1.add("a");
-        arrayList1.add("h");
+        ArrayList<Integer> arrayList = binaryTree.traverse(BinaryTree.TraversalOrder.POSTORDER);
+        ArrayList<Integer> arrayList1 = new ArrayList<>();
+        arrayList1.add(2);
+        arrayList1.add(3);
+        arrayList1.add(1);
         String arr1 = String.valueOf(arrayList);
         String arr2 = String.valueOf(arrayList1);
 
@@ -390,5 +390,22 @@ class AppTest {
         int actual = binarySearchTree.findMax();
         assertEquals(200 , actual);
     }
+
+    @Test
+    void testMaxTree(){
+        BinaryTree<String> binaryTree = new BinaryTree<>();
+        binaryTree.setRoot(new BTNode<>(5));
+        // level 1
+        binaryTree.getRoot().setLeft(new BTNode<Integer>(1));
+        binaryTree.getRoot().setRight(new BTNode<Integer>(30));
+
+        // level 2
+        binaryTree.getRoot().getLeft().setLeft(new BTNode<Integer>(15));
+        binaryTree.getRoot().getRight().setLeft(new BTNode<Integer>(20));
+        System.out.println(binaryTree.treeBreadthFirst());
+        assertEquals(30, binaryTree.findMax(binaryTree.getRoot()));
+    }
+
+
 
 }

@@ -2,9 +2,9 @@ package com.stackAndQueue.tree.structure;
 
 import com.stackAndQueue.queue.structure.Queue;
 import com.stackAndQueue.tree.data.BTNode;
-import com.stackAndQueue.tree.data.Node;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class BinaryTree<T extends Comparable<T>> {
     public enum TraversalOrder {
@@ -13,7 +13,7 @@ public class BinaryTree<T extends Comparable<T>> {
         POSTORDER
     }
     private BTNode root;
-    private ArrayList<T> arrayList;
+    private ArrayList<Integer> arrayList;
 
     public BTNode getRoot() {
         return root;
@@ -23,7 +23,7 @@ public class BinaryTree<T extends Comparable<T>> {
         this.root = root;
     }
     public ArrayList traverse(BinaryTree.TraversalOrder order) {
-        arrayList = new ArrayList<>();
+        arrayList = new ArrayList<Integer>();
         switch (order) {
             case INORDER:
                 inOrder(root);
@@ -39,8 +39,28 @@ public class BinaryTree<T extends Comparable<T>> {
         return arrayList;
     }
 
+    // Helping by https://www.geeksforgeeks.org/find-maximum-or-minimum-in-binary-tree/
+    public int findMax(BTNode<Integer> node)
+    {
+        if (node == null)
+            return 0;
 
-    ArrayList inOrder(BTNode<T> root)
+        int max = node.getData();
+        int leftResult = findMax(node.getLeft());
+        int rightResult = findMax(node.getRight());
+
+        if (leftResult > max)
+            max = leftResult;
+
+        if (rightResult > max)
+            max = rightResult;
+
+        return max;
+    }
+
+
+
+    ArrayList<Integer> inOrder(BTNode<T> root)
     {
         if (root == null)
             return arrayList;
@@ -52,7 +72,7 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
 
-    ArrayList<T> preOrder(BTNode<T> root)
+    ArrayList<Integer> preOrder(BTNode<T> root)
     {
         if (root == null)
             return arrayList;
@@ -63,7 +83,7 @@ public class BinaryTree<T extends Comparable<T>> {
         return null;
     }
 
-    ArrayList<T> postOrder(BTNode<T> root)
+    ArrayList<Integer> postOrder(BTNode<T> root)
     {
         if (root == null)
             return arrayList;
@@ -75,7 +95,8 @@ public class BinaryTree<T extends Comparable<T>> {
 
 
 
-    public void levelOrderTraversalLoop() {
+   public ArrayList<Integer> treeBreadthFirst() {
+        ArrayList<Integer> arrayList= new ArrayList<>();
         if (root != null) {
             Queue<BTNode> queue = new Queue<>();
             queue.enqueue(root);
@@ -83,7 +104,7 @@ public class BinaryTree<T extends Comparable<T>> {
             while (!queue.empty()) {
                 node = queue.peek();
                 queue.dequeue();
-                System.out.print(node.getData() + " => ");
+                arrayList.add(node.getData());
                 if (node.getLeft() != null) {
                     queue.enqueue(node.getLeft());
                 }
@@ -93,8 +114,9 @@ public class BinaryTree<T extends Comparable<T>> {
                 }
             }
         } else {
-            System.out.println("Tree empty");
+            throw new NoSuchElementException("The BT is empty");
         }
+        return arrayList;
     }
 
 

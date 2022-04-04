@@ -49,36 +49,53 @@ public class App {
 //        System.out.println(validateBrackets("[}"));
 
 
-// Binary tree
+// Binary tree tree breadth first
         BinaryTree<String> binaryTree = new BinaryTree<>();
-        binaryTree.setRoot(new BTNode<>("h"));
+        binaryTree.setRoot(new BTNode<>(5));
         // level 1
-        binaryTree.getRoot().setLeft(new BTNode<>("h"));
-        binaryTree.getRoot().setRight(new BTNode<>("a"));
+        binaryTree.getRoot().setLeft(new BTNode<Integer>(1));
+        binaryTree.getRoot().setRight(new BTNode<Integer>(15));
 
         // level 2
-        binaryTree.getRoot().getLeft().setLeft(new BTNode<>("m"));
-        binaryTree.getRoot().getRight().setLeft(new BTNode<>("z"));
-//        binaryTree.levelOrderTraversalLoop();
-        System.out.println("\n");
-        System.out.println("POSTORDER \n" + binaryTree.traverse(  BinaryTree.TraversalOrder.POSTORDER));
-        System.out.println("INORDER");
-        System.out.println(binaryTree.traverse(BinaryTree.TraversalOrder.INORDER));;
-        System.out.println("PREORDER");
-        System.out.println(binaryTree.traverse(BinaryTree.TraversalOrder.PREORDER));;
-        System.out.println("\n\nBinary search tree");
+        binaryTree.getRoot().getLeft().setLeft(new BTNode<Integer>(15));
+        binaryTree.getRoot().getRight().setLeft(new BTNode<Integer>(20));
+        System.out.println(binaryTree.treeBreadthFirst());
 
-// Binary search tree
-        BinarySearchTree<Integer> binarySearchTree= new BinarySearchTree<>();
-        binarySearchTree.add(100);
-        binarySearchTree.add(200);
-        binarySearchTree.add(80);
-        binarySearchTree.add(500);
-        binarySearchTree.add(90);
-        // Find the maximum number
-        System.out.println("Maximum number is => " + binarySearchTree.findMax());
-        binarySearchTree.traverse(BinarySearchTree.TraversalOrder.INORDER);
-        System.out.println(binarySearchTree.contains(90));
+
+        // Binary tree find the maximum
+        BinaryTree<Integer> binaryTree1 = new BinaryTree<>();
+        binaryTree1.setRoot(new BTNode<Integer>(1));
+        // level 1
+        binaryTree1.getRoot().setLeft(new BTNode<Integer>(2));
+        binaryTree1.getRoot().setRight(new BTNode<Integer>(800));
+
+        // level 2
+        binaryTree1.getRoot().getLeft().setLeft(new BTNode<Integer>(350));
+        binaryTree1.getRoot().getRight().setLeft(new BTNode<Integer>(600));
+        System.out.println(binaryTree1.findMax(binaryTree1.getRoot()));;
+
+//
+//
+//        System.out.println(binaryTree.levelOrderTraversalLoop());
+//        System.out.println("\n");
+//        System.out.println("POSTORDER \n" + binaryTree.traverse(  BinaryTree.TraversalOrder.POSTORDER));
+//        System.out.println("INORDER");
+//        System.out.println(binaryTree.traverse(BinaryTree.TraversalOrder.INORDER));;
+//        System.out.println("PREORDER");
+//        System.out.println(binaryTree.traverse(BinaryTree.TraversalOrder.PREORDER));;
+//        System.out.println("\n\nBinary search tree");
+//
+//// Binary search tree
+//        BinarySearchTree<Integer> binarySearchTree= new BinarySearchTree<>();
+//        binarySearchTree.add(100);
+//        binarySearchTree.add(200);
+//        binarySearchTree.add(80);
+//        binarySearchTree.add(500);
+//        binarySearchTree.add(90);
+//        // Find the maximum number
+//        System.out.println("Maximum number is => " + binarySearchTree.findMax());
+//        binarySearchTree.traverse(BinarySearchTree.TraversalOrder.INORDER);
+//        System.out.println(binarySearchTree.contains(90));
 
 
 
