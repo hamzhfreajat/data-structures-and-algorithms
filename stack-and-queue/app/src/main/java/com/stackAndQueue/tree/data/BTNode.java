@@ -2,36 +2,36 @@ package com.stackAndQueue.tree.data;
 
 public class BTNode<T> {
 
-    private T data;
+    private int data;
 
-    private BTNode left;
-    private BTNode right;
+    private BTNode<T> left;
+    private BTNode<T> right;
 
-    public BTNode(T data) {
+    public BTNode(int data) {
         this.data = data;
     }
 
-    public T getData() {
+    public int getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(int data) {
         this.data = data;
     }
 
-    public BTNode getLeft() {
+    public BTNode<T> getLeft() {
         return left;
     }
 
-    public void setLeft(BTNode left) {
+    public void setLeft(BTNode<T> left) {
         this.left = left;
     }
 
-    public BTNode getRight() {
+    public BTNode<T> getRight() {
         return right;
     }
 
-    public void setRight(BTNode right) {
+    public void setRight(BTNode<T> right) {
         this.right = right;
     }
 
