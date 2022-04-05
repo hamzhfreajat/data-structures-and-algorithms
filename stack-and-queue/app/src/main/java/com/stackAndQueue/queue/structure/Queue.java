@@ -8,13 +8,18 @@ import java.util.NoSuchElementException;
 public class Queue<T> {
     private QueueNode<T> front;
     private QueueNode<T> back ;
-
+    private int size = 0;
 
     public Queue() {
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public QueueNode<T> enqueue(T value){
         QueueNode<T> newQueueNode = new QueueNode<>(value);
+        size++;
         if(empty()){
             front = back = newQueueNode;
         }else {
@@ -26,6 +31,7 @@ public class Queue<T> {
 
     public QueueNode<T> dequeue(){
         QueueNode<T> removed;
+        size--;
         if (empty()){
             throw new NoSuchElementException("The Queue is empty");
         }else{
