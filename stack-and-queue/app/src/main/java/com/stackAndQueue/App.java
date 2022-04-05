@@ -9,6 +9,10 @@ import com.stackAndQueue.stack.structure.Stack;
 import com.stackAndQueue.tree.data.BTNode;
 import com.stackAndQueue.tree.structure.BinarySearchTree;
 import com.stackAndQueue.tree.structure.BinaryTree;
+import com.stackAndQueue.tree.structure.TreeNode;
+
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class App {
 
@@ -50,29 +54,29 @@ public class App {
 
 
 // Binary tree tree breadth first
-        BinaryTree<String> binaryTree = new BinaryTree<>();
-        binaryTree.setRoot(new BTNode<>(5));
-        // level 1
-        binaryTree.getRoot().setLeft(new BTNode<Integer>(1));
-        binaryTree.getRoot().setRight(new BTNode<Integer>(15));
-
-        // level 2
-        binaryTree.getRoot().getLeft().setLeft(new BTNode<Integer>(15));
-        binaryTree.getRoot().getRight().setLeft(new BTNode<Integer>(20));
-        System.out.println(binaryTree.treeBreadthFirst());
-
-
-        // Binary tree find the maximum
-        BinaryTree<Integer> binaryTree1 = new BinaryTree<>();
-        binaryTree1.setRoot(new BTNode<Integer>(1));
-        // level 1
-        binaryTree1.getRoot().setLeft(new BTNode<Integer>(2));
-        binaryTree1.getRoot().setRight(new BTNode<Integer>(800));
-
-        // level 2
-        binaryTree1.getRoot().getLeft().setLeft(new BTNode<Integer>(350));
-        binaryTree1.getRoot().getRight().setLeft(new BTNode<Integer>(600));
-        System.out.println(binaryTree1.findMax(binaryTree1.getRoot()));;
+//        BinaryTree<String> binaryTree = new BinaryTree<>();
+//        binaryTree.setRoot(new BTNode<>(5));
+//        // level 1
+//        binaryTree.getRoot().setLeft(new BTNode<Integer>(1));
+//        binaryTree.getRoot().setRight(new BTNode<Integer>(15));
+//
+//        // level 2
+//        binaryTree.getRoot().getLeft().setLeft(new BTNode<Integer>(15));
+//        binaryTree.getRoot().getRight().setLeft(new BTNode<Integer>(20));
+//        System.out.println(binaryTree.treeBreadthFirst());
+//
+//
+//        // Binary tree find the maximum
+//        BinaryTree<Integer> binaryTree1 = new BinaryTree<>();
+//        binaryTree1.setRoot(new BTNode<Integer>(1));
+//        // level 1
+//        binaryTree1.getRoot().setLeft(new BTNode<Integer>(2));
+//        binaryTree1.getRoot().setRight(new BTNode<Integer>(800));
+//
+//        // level 2
+//        binaryTree1.getRoot().getLeft().setLeft(new BTNode<Integer>(350));
+//        binaryTree1.getRoot().getRight().setLeft(new BTNode<Integer>(600));
+//        System.out.println(binaryTree1.findMax(binaryTree1.getRoot()));;
 
 //
 //
@@ -98,6 +102,18 @@ public class App {
 //        System.out.println(binarySearchTree.contains(90));
 
 
+        TreeNode root = new TreeNode(1);
+        root.children.add(new TreeNode(2));
+        root.children.add(new TreeNode(3));
+        root.children.add(new TreeNode(4));
+        root.children.get(0).children.add(new TreeNode(5));
+        root.children.get(0).children.add(new TreeNode(6));
+        root.children.get(0).children.add(new TreeNode(7));
+        root.children.get(1).children.add(new TreeNode(8));
+        root.children.get(2).children.add(new TreeNode(9));
+        root.children.get(2).children.add(new TreeNode(10));
+        root.children.get(2).children.add(new TreeNode(11));
+        printNAryTree(root);
 
 
 
@@ -121,5 +137,23 @@ public class App {
             }
         }
         return stack.empty();
+    }
+    
+    private static void printNAryTree(TreeNode root){
+        if(root == null) return;
+        Queue<TreeNode> queue = new Queue<>();
+        queue.enqueue(root);
+        while(!queue.empty()) {
+            int len = queue.getSize();
+            for(int i=0;i<len;i++) { // so that we can reach each level
+                TreeNode node = queue.peek();
+                queue.dequeue();
+                System.out.print(node.val + " ");
+                for (TreeNode item : node.children) { // for-Each loop to iterate over all childrens
+                    queue.enqueue(item);
+                }
+            }
+            System.out.println();
+        }
     }
 }
