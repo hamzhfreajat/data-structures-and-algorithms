@@ -3,7 +3,7 @@ Create sort insertion function that accept array of integer and sort the value a
 
 ## Whiteboard Process
 
-![Whiteboard](./assets/Whiteboard.png)
+![Whiteboard](./assets/Whiteboard1.png)
 
 ## Approach & Efficiency
 Using nested loop to check the value one by one and resorted the value each time 
