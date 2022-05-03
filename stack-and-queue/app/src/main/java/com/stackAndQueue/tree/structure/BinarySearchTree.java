@@ -1,7 +1,10 @@
 package com.stackAndQueue.tree.structure;
 
+import com.stackAndQueue.queue.structure.Queue;
 import com.stackAndQueue.tree.data.BinaryNode;
 import com.stackAndQueue.tree.data.Node;
+
+import java.util.NoSuchElementException;
 
 public class BinarySearchTree<T extends Comparable<T>> {
 
@@ -111,6 +114,32 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         printNode(treeNode);
     }
+//       public int treeBreadthFirst() {
+//       int sum = 0 ;
+//        if (root != null) {
+//            Queue<Node> queue = new Queue<>();
+//            queue.enqueue(root);
+//            Node node;
+//            while (!queue.empty()) {
+//                node = queue.peek();
+//                queue.dequeue();
+//                if(node.getData() % 2 != 0 ){
+//                    sum += node.getData();
+//                }
+//                arrayList.add(node.getData());
+//                if (node.getLeftNode() != null) {
+//                    queue.enqueue(node.getLeftNode());
+//                }
+//
+//                if (node.getRightNode() != null) {
+//                    queue.enqueue(node.getRightNode());
+//                }
+//            }
+//        } else {
+//            throw new NoSuchElementException("The BT is empty");
+//        }
+//
+//    }
 
     private void printNode(Node<T> node) {
         System.out.println(node.getData());

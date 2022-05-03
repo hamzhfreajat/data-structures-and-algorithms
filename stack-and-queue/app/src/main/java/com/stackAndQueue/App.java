@@ -55,15 +55,37 @@ public class App {
 
 // Binary tree tree breadth first
 //        BinaryTree<String> binaryTree = new BinaryTree<>();
-//        binaryTree.setRoot(new BTNode<>(5));
+//        binaryTree.setRoot(new BTNode<String>("folder"));
 //        // level 1
-//        binaryTree.getRoot().setLeft(new BTNode<Integer>(1));
-//        binaryTree.getRoot().setRight(new BTNode<Integer>(15));
+//        binaryTree.getRoot().setLeft(new BTNode<String>("folder"));
+//        binaryTree.getRoot().setRight(new BTNode<String>("folder"));
 //
 //        // level 2
-//        binaryTree.getRoot().getLeft().setLeft(new BTNode<Integer>(15));
-//        binaryTree.getRoot().getRight().setLeft(new BTNode<Integer>(20));
-//        System.out.println(binaryTree.treeBreadthFirst());
+//
+//        binaryTree.getRoot().getLeft().setLeft(new BTNode<String>(".css"));
+//        binaryTree.getRoot().getLeft().setRight(new BTNode<String>(".file"));
+//        binaryTree.getRoot().getRight().setLeft(new BTNode<String>(".java"));
+//        binaryTree.getRoot().getRight().setLeft(new BTNode<String>(".file"));
+//
+//        BinaryTree<String> binaryTree1 = new BinaryTree<>();
+//        binaryTree1.setRoot(new BTNode<String>("folder"));
+//        // level 1
+//        binaryTree1.getRoot().setLeft(new BTNode<String>("folder"));
+//        binaryTree1.getRoot().setRight(new BTNode<String>("folder"));
+//
+//        // level 2
+//
+//        binaryTree1.getRoot().getLeft().setLeft(new BTNode<String>(".css"));
+//        binaryTree1.getRoot().getLeft().setRight(new BTNode<String>(".file"));
+//        binaryTree1.getRoot().getRight().setLeft(new BTNode<String>(".java"));
+//        binaryTree1.getRoot().getRight().setLeft(new BTNode<String>(".file"));
+
+
+
+
+
+//        System.out.println(silmilarDir(binaryTree.getRoot(), binaryTree1.getRoot()));;
+
 //
 //
 //        // Binary tree find the maximum
@@ -90,30 +112,30 @@ public class App {
 //        System.out.println("\n\nBinary search tree");
 //
 //// Binary search tree
-//        BinarySearchTree<Integer> binarySearchTree= new BinarySearchTree<>();
-//        binarySearchTree.add(100);
-//        binarySearchTree.add(200);
-//        binarySearchTree.add(80);
-//        binarySearchTree.add(500);
-//        binarySearchTree.add(90);
-//        // Find the maximum number
-//        System.out.println("Maximum number is => " + binarySearchTree.findMax());
-//        binarySearchTree.traverse(BinarySearchTree.TraversalOrder.INORDER);
-//        System.out.println(binarySearchTree.contains(90));
+        BinarySearchTree<Integer> binarySearchTree= new BinarySearchTree<>();
+        binarySearchTree.add(100);
+        binarySearchTree.add(200);
+        binarySearchTree.add(80);
+        binarySearchTree.add(500);
+        binarySearchTree.add(90);
+        // Find the maximum number
+        System.out.println("Maximum number is => " + binarySearchTree.findMax());
+        binarySearchTree.traverse(BinarySearchTree.TraversalOrder.INORDER);
+        System.out.println(binarySearchTree.contains(90));
 
 
-        TreeNode root = new TreeNode(1);
-        root.children.add(new TreeNode(2));
-        root.children.add(new TreeNode(3));
-        root.children.add(new TreeNode(4));
-        root.children.get(0).children.add(new TreeNode(5));
-        root.children.get(0).children.add(new TreeNode(6));
-        root.children.get(0).children.add(new TreeNode(7));
-        root.children.get(1).children.add(new TreeNode(8));
-        root.children.get(2).children.add(new TreeNode(9));
-        root.children.get(2).children.add(new TreeNode(10));
-        root.children.get(2).children.add(new TreeNode(11));
-        printNAryTree(root);
+//        TreeNode root = new TreeNode(1);
+//        root.children.add(new TreeNode(2));
+//        root.children.add(new TreeNode(3));
+//        root.children.add(new TreeNode(4));
+//        root.children.get(0).children.add(new TreeNode(5));
+//        root.children.get(0).children.add(new TreeNode(6));
+//        root.children.get(0).children.add(new TreeNode(7));
+//        root.children.get(1).children.add(new TreeNode(8));
+//        root.children.get(2).children.add(new TreeNode(9));
+//        root.children.get(2).children.add(new TreeNode(10));
+//        root.children.get(2).children.add(new TreeNode(11));
+//        printNAryTree(root);
 
 
 
@@ -138,7 +160,7 @@ public class App {
         }
         return stack.empty();
     }
-    
+
     private static void printNAryTree(TreeNode root){
         if(root == null) return;
         Queue<TreeNode> queue = new Queue<>();
@@ -155,5 +177,46 @@ public class App {
             }
             System.out.println();
         }
+    }
+
+    public static boolean silmilarDir(BTNode<String> root , BTNode<String> root2){
+        int counter1 = 0 ;
+        int counter2 = 0;
+        if (root != null || root2 != null) {
+            Queue<BTNode> queue = new Queue<>();
+            Queue<BTNode> queue2 = new Queue<>();
+            queue.enqueue(root);
+            queue2.enqueue(root2);
+             counter1 = getFileCount(queue);
+             counter2 = getFileCount(queue2);
+
+        } else {
+            throw new NoSuchElementException("The BT is empty");
+        }
+        return counter1 == counter2;
+    }
+
+    public static int getFileCount(Queue<BTNode> queue){
+        int counter = 0;
+        while (!queue.empty()) {
+            BTNode node = queue.peek();
+            queue.dequeue();
+
+            if (node.getLeft() != null) {
+                queue.enqueue(node.getLeft());
+                if (node.getLeft().getLeft() == null && node.getRight() == null && !node.getData().equals("folder")){
+                    counter++;
+                }
+            }
+
+            if (node.getRight() != null) {
+                queue.enqueue(node.getRight());
+                if (node.getLeft() == null && node.getRight().getRight() ==null && !node.getData().equals("folder")){
+                    counter++;
+                }
+            }
+
+        }
+        return counter;
     }
 }
