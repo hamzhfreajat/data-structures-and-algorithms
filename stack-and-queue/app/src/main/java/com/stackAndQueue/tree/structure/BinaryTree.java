@@ -13,7 +13,7 @@ public class BinaryTree<T extends Comparable<T>> {
         POSTORDER
     }
     private BTNode root;
-    private ArrayList<Integer> arrayList;
+    private ArrayList<T> arrayList;
 
     public BTNode getRoot() {
         return root;
@@ -23,7 +23,7 @@ public class BinaryTree<T extends Comparable<T>> {
         this.root = root;
     }
     public ArrayList traverse(BinaryTree.TraversalOrder order) {
-        arrayList = new ArrayList<Integer>();
+        arrayList = new ArrayList<T>();
         switch (order) {
             case INORDER:
                 inOrder(root);
@@ -60,7 +60,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
 
 
-    ArrayList<Integer> inOrder(BTNode<T> root)
+    ArrayList<T> inOrder(BTNode<T> root)
     {
         if (root == null)
             return arrayList;
@@ -72,7 +72,7 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
 
-    ArrayList<Integer> preOrder(BTNode<T> root)
+    ArrayList<T> preOrder(BTNode<T> root)
     {
         if (root == null)
             return arrayList;
@@ -83,7 +83,7 @@ public class BinaryTree<T extends Comparable<T>> {
         return null;
     }
 
-    ArrayList<Integer> postOrder(BTNode<T> root)
+    ArrayList<T> postOrder(BTNode<T> root)
     {
         if (root == null)
             return arrayList;
@@ -94,30 +94,30 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
 
-
-   public ArrayList<Integer> treeBreadthFirst() {
-        ArrayList<Integer> arrayList= new ArrayList<>();
-        if (root != null) {
-            Queue<BTNode> queue = new Queue<>();
-            queue.enqueue(root);
-            BTNode node;
-            while (!queue.empty()) {
-                node = queue.peek();
-                queue.dequeue();
-                arrayList.add(node.getData());
-                if (node.getLeft() != null) {
-                    queue.enqueue(node.getLeft());
-                }
-
-                if (node.getRight() != null) {
-                    queue.enqueue(node.getRight());
-                }
-            }
-        } else {
-            throw new NoSuchElementException("The BT is empty");
-        }
-        return arrayList;
-    }
+//
+//   public ArrayList<T> treeBreadthFirst() {
+//        ArrayList<T> arrayList= new ArrayList<>();
+//        if (root != null) {
+//            Queue<BTNode> queue = new Queue<>();
+//            queue.enqueue(root);
+//            BTNode node;
+//            while (!queue.empty()) {
+//                node = queue.peek();
+//                queue.dequeue();
+//                arrayList.add(node.getData());
+//                if (node.getLeft() != null) {
+//                    queue.enqueue(node.getLeft());
+//                }
+//
+//                if (node.getRight() != null) {
+//                    queue.enqueue(node.getRight());
+//                }
+//            }
+//        } else {
+//            throw new NoSuchElementException("The BT is empty");
+//        }
+//        return arrayList;
+//    }
 
 
 
