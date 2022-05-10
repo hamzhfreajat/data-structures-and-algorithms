@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
     @Test
-    public void insertSortTest(){
+    public void mergeSortTest(){
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(8);
         arrayList.add(4);
