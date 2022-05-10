@@ -5,9 +5,9 @@ Merge Sort is a sorting algorithm that use recursion to divide the array multipl
 ![Whiteboard](./assets/whiteboard.png)
 
 ## Approach & Efficiency
-### Time: O(n^2)
+### Time: O(n * log(n))
 The basic operation of this algorithm is recursion. This will happen `n * log n` number of times….
-### Space: O(1)
+### Space: O(n)
 This array is being sorted in place… the space `O(n)`.
 
 ## Solution
