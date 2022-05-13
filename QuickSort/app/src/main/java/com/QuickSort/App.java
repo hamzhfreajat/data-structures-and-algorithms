@@ -15,7 +15,9 @@ public class App {
         arrayList.add(42);
         arrayList.add(16);
         arrayList.add(15);
+        System.out.println(arrayList);
         QuickSort(arrayList , 0,arrayList.size()-1);
+        System.out.println(arrayList);
 
     }
 
@@ -36,7 +38,6 @@ public class App {
                 low++;
                 Swap(arr, i, low)  ;
             }
-
         }
         Swap(arr, right, low + 1);
      return low + 1 ;

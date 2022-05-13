@@ -11,7 +11,6 @@ public class App {
     public static void main(String[] args) {
 
         ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(8);
         arrayList.add(4);
         arrayList.add(23);
         arrayList.add(42);
