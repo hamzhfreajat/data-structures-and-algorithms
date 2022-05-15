@@ -6,24 +6,46 @@ package com.HashTable;
 import com.HashTable.structure.HashMap;
 
 import java.util.Hashtable;
+import java.util.Locale;
 
 public class App {
 
     public static void main(String[] args) {
+//        HashMap<String , String> hashMap = new HashMap<>();
+//        hashMap.put("hamzh" , "java developer");
+//        hashMap.put("hamzh" , "java develop");
+//        hashMap.put("ahmad" , "java developer");
+//        hashMap.put("mohammed" , "java developer");
+//        hashMap.put("Ibrahem" , "java developer");
+//        hashMap.put("JAVA" , "hello evry one");
+//        hashMap.put("Amman" , "hello evry one" );
+//
+//
+//        System.out.println(hashMap.keys());
+//        System.out.println(hashMap.contains("hazh"));
+//        System.out.println(hashMap.getSize());
+//        System.out.println(hashMap.print("Ibrahem"));
+        System.out.println(repeatedWord("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."));
+
+    }
+
+
+    public static String repeatedWord (String str){
+        String[] strArr = str.split(" ");
         HashMap<String , String> hashMap = new HashMap<>();
-        hashMap.put("hamzh" , "java developer");
-        hashMap.put("hamzh" , "java develop");
-        hashMap.put("ahmad" , "java developer");
-        hashMap.put("mohammed" , "java developer");
-        hashMap.put("Ibrahem" , "java developer");
-        hashMap.put("JAVA" , "hello evry one");
-        hashMap.put("Amman" , "hello evry one" );
 
-
-        System.out.println(hashMap.keys());
-        System.out.println(hashMap.contains("hazh"));
-        System.out.println(hashMap.getSize());
-        System.out.println(hashMap.print("Ibrahem"));
-
+        for (String word:
+                strArr) {
+            word = word.toLowerCase().replaceAll(",", "");
+            if (hashMap.contains(word)){
+                System.out.println(word);
+                return word ;
+            }
+            else{
+                System.out.println(word);
+                hashMap.put(word , word);
+            }
+        }
+        return "There are no duplicate" ;
     }
 }
