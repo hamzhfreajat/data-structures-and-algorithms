@@ -13,13 +13,17 @@ The approach that I made is depends on hashing and retrieve an integer from hash
 
 
 ### Get
-- Time Complexity Big O(n) ;
-- Space Complexity Big O(1) ;
+- Time Complexity :
+- Worst case Big O(n) ;
+- Average case Big O(1)
+
 
 
 ### Contains 
-- Time Complexity Big O(1) ;
-- Space Complexity Big O(n) ;
+- Time Complexity : 
+- Worst case Big O(n) ;
+- Average case Big O(1)
+
 
 ### Keys
 - Time Complexity Big O(1) ;

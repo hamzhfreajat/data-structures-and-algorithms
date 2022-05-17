@@ -1,6 +1,8 @@
-package com.HashTable.structure;
+package com.treeIntersection.structure;
 
-import com.HashTable.data.HashNode;
+
+
+import com.treeIntersection.data.HashNode;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -48,7 +50,7 @@ public class HashMap<K,V> {
         return arrayIndex;
     }
 
-    public void put(K key, V value) {
+    public void set(K key, V value) {
         int index = getHashed(key);
         int hashcode = hashCode(key);
 
@@ -63,19 +65,18 @@ public class HashMap<K,V> {
             size++;
         } else {
 
-            if (keysArray.contains(key)){
-                head.setValue(value);
-                System.out.println("duplucate => " + key);
-                return;
+            while (head != null) {
+                if (head.getKey().equals(key) && head.getHashCode() == hashcode) {
+                    head.setValue(value);
+                    return;
+                }
+                head = head.getNext();
             }
 
-
-                System.out.println("Not => " +  key);
                 keysArray.add(key);
                 newNode.setNext(head.getNext());
                 head.setNext(newNode);
                 size++;
-
 
         }
 
@@ -89,7 +90,7 @@ public class HashMap<K,V> {
 
             for (HashNode<K, V> headNode : temp) {
                 while (headNode != null) {
-                    put(headNode.getKey(), headNode.getValue());
+                    set(headNode.getKey(), headNode.getValue());
                     headNode = headNode.getNext();
                 }
             }
@@ -135,5 +136,13 @@ public class HashMap<K,V> {
         return out;
     }
 
-
+    @Override
+    public String toString() {
+        return "HashMap{" +
+                "bucketArray=" + bucketArray +
+                ", buckets=" + buckets +
+                ", size=" + size +
+                ", keysArray=" + keysArray +
+                '}';
+    }
 }
