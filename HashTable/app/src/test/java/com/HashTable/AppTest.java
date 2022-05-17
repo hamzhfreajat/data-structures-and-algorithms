@@ -86,7 +86,7 @@ class AppTest {
 
         boolean value = true ;
         for (int i = 0; i < hashMap.getSize(); i++) {
-           int indexNumber = hashMap.getBucketIndex(number[i]);
+           int indexNumber = hashMap.getHashed(number[i]);
            if (!(indexNumber < hashMap.getBuckets())){
                value = false;
            }
