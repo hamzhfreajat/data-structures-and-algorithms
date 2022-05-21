@@ -7,6 +7,7 @@ import com.treeIntersection.data.HashNode;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class HashMap<K,V> {
     private ArrayList<HashNode<K, V>> bucketArray;
@@ -56,29 +57,24 @@ public class HashMap<K,V> {
 
 
 
-        HashNode<K, V> newNode = new HashNode<>(key, value, hashcode);
+
         HashNode<K, V> head = bucketArray.get(index);
 
-        if (head == null) {
-            bucketArray.set(index, newNode);
-            keysArray.add(key);
-            size++;
-        } else {
 
-            while (head != null) {
-                if (head.getKey().equals(key) && head.getHashCode() == hashcode) {
-                    head.setValue(value);
-                    return;
-                }
-                head = head.getNext();
+        while (head != null) {
+            if (head.getKey().equals(key) && head.getHashCode() == hashcode) {
+                head.setValue(value);
+                return;
             }
-
-                keysArray.add(key);
-                newNode.setNext(head.getNext());
-                head.setNext(newNode);
-                size++;
-
+            head = head.getNext();
         }
+
+        size++;
+        head = bucketArray.get(index);
+        HashNode<K, V> newNode = new HashNode<>(key, value, hashcode);
+        keysArray.add(key);
+        newNode.setNext(head);
+        bucketArray.set(index , newNode) ;
 
         if ((1.0 * size) / buckets >= 0.7) {
             ArrayList<HashNode<K, V> > temp = bucketArray;
@@ -134,6 +130,25 @@ public class HashMap<K,V> {
         }
         out +="{ NULL }";
         return out;
+    }
+
+
+    public Set<String> findDuplicate(){
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < buckets; i++) {
+                HashNode<K, V> head = bucketArray.get(i);
+                while (head != null) {
+                    if (!head.getValue().equals(1)){
+
+                        set.add(head.getKey().toString()) ;
+                    }
+                    head = head.getNext();
+                }
+
+            }
+
+        return set ;
+
     }
 
     @Override

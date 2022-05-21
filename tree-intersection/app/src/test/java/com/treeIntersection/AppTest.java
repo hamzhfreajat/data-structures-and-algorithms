@@ -8,6 +8,7 @@ import com.treeIntersection.structure.TreeIntersection;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import static com.treeIntersection.App.treeIntersection;
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +17,6 @@ class AppTest {
     @Test
     public void testKey(){
         TreeIntersection<Integer> treeIntersection1 = new TreeIntersection<>();
-
         treeIntersection1.add(15);
         treeIntersection1.add(20);
         treeIntersection1.add(3);
@@ -31,17 +31,12 @@ class AppTest {
         treeIntersection2.add(9);
         treeIntersection2.add(8);
 
-        treeIntersection(treeIntersection1 , treeIntersection2);
+        Set<String> set = treeIntersection(treeIntersection1 , treeIntersection2);
 
-        HashSet<Integer> hashSet2 = new HashSet<>();
-        hashSet2.add(15);
-        hashSet2.add(20);
+        Set<String> exp = new HashSet<>();
+        exp.add("15");
+        exp.add("20");
 
-
-        HashMap hashMap = App.getHashMap();
-        HashSet<Integer>  hashSet = hashMap.keys();
-
-
-        assertEquals(hashSet , hashSet2);
+        assertEquals(set.toString() , exp.toString());
     }
 }
