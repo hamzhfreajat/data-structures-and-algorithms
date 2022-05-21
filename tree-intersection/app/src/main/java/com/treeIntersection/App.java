@@ -3,24 +3,30 @@
  */
 package com.treeIntersection;
 
-import com.treeIntersection.data.HashNode;
+
 import com.treeIntersection.data.Node;
+
 import com.treeIntersection.structure.HashMap;
 import com.treeIntersection.structure.TreeIntersection;
+
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
 
 public class App {
 
 
-    private static HashMap<Integer, Integer> hashMap;
+
 
     public static void main(String[] args) {
         TreeIntersection<Integer> treeIntersection1 = new TreeIntersection<>();
-        hashMap = new HashMap<>();
         treeIntersection1.add(15);
         treeIntersection1.add(20);
         treeIntersection1.add(3);
         treeIntersection1.add(4);
         treeIntersection1.add(5);
+        treeIntersection1.add(40);
 
 
         TreeIntersection<Integer> treeIntersection2 = new TreeIntersection<>();
@@ -28,7 +34,7 @@ public class App {
         treeIntersection2.add(20);
         treeIntersection2.add(7);
         treeIntersection2.add(9);
-        treeIntersection2.add(8);
+        treeIntersection2.add(40);
 
         treeIntersection(treeIntersection1 , treeIntersection2);
 
@@ -36,36 +42,57 @@ public class App {
 
 
 
-    public static void treeIntersection(TreeIntersection<Integer> treeIntersection1 , TreeIntersection<Integer> treeIntersection2 ){
-        Node<Integer>  root1 =   treeIntersection1.getRoot();
+    public static Set<String> treeIntersection(TreeIntersection<Integer> treeIntersection1 , TreeIntersection<Integer> treeIntersection2 ){
+        HashMap<String , Integer> hashtable = new HashMap<>();
+        Node<Integer>  root =   treeIntersection1.getRoot();
         Node<Integer>  root2 =   treeIntersection2.getRoot();
-        // Add binary tree 1 to hash map
-        hashMap = new HashMap<>();
+        addInOrder(root , hashtable);
+        addInOrder(root2 , hashtable);
 
-        inOrder(root1 ,root2);
-
-        System.out.println("hi");
-
-
+        return findDuplicate(hashtable);
 
     }
 
-    private static void inOrder(Node<Integer> treeNode , Node<Integer> treeNode2) {
+    private static void addInOrder(Node<Integer> root , HashMap<String , Integer> hashtable) {
 
-        if (treeNode == null || treeNode2 == null) { // base case
-            return;
+        if (root == null) return;
+        
+        Stack<Node> stack = new Stack<Node>();
+        Node current = root;
+        
+        while (current != null || stack.size() > 0)
+        {
+
+            while (current !=  null)
+            {
+                stack.push(current);
+                current = current.getLeftNode();
+            }
+
+            current = stack.pop();
+
+            if(hashtable.get(current.getData().toString()) == null)
+            {
+                hashtable.set(current.getData().toString(), 1);
+            }
+            else
+            {
+                hashtable.set(current.getData().toString(), hashtable.get(current.getData().toString())+1);
+            }
+
+            current = current.getRightNode();
         }
-        inOrder(treeNode.getLeftNode() , treeNode2.getLeftNode()); // left
-        if (treeNode.getData()== treeNode2.getData()){
-            hashMap.set(treeNode.getData() , treeNode.getData());
-        }
 
-        inOrder(treeNode.getRightNode(), treeNode2.getRightNode()); // right
     }
 
-    public static HashMap<Integer , Integer> getHashMap(){
-        return hashMap ;
+
+
+
+    private static Set<String> findDuplicate(HashMap<String , Integer> hashMap){
+        Set<String> set = hashMap.findDuplicate();
+        return set ;
     }
+
 
 
 }
