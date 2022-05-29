@@ -7,7 +7,9 @@ import com.graph.data.Vertex;
 import com.graph.structure.Graph;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -111,6 +113,28 @@ class AppTest {
         String val = graph.getNodes();
         String exp = null ;
         assertEquals(exp , val);
+    }
+
+    @Test
+    public void breadthFirstTest(){
+        Graph graph = new Graph();
+
+        graph.addNode("A" );
+        graph.addNode("B");
+        graph.addNode("C");
+
+        graph.addEdge("A","B");
+        graph.addEdge("B","C");
+        graph.addEdge("A","C");
+
+        Set<String> set = graph.breadthFirst("A");
+
+        Set<String> exp = new HashSet<>();
+        exp.add("A");
+        exp.add("B");
+        exp.add("C");
+
+        assertEquals( exp.toString() , set.toString());
     }
 
 

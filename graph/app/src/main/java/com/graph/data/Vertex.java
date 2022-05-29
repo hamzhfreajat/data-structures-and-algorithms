@@ -10,6 +10,10 @@ public class Vertex {
         this.data = data;
     }
 
+    public String getData() {
+        return data;
+    }
+
     public Vertex(String data , int weight) {
         this.data = data;
         this.weight = weight;

@@ -2,10 +2,7 @@ package com.graph.structure;
 
 import com.graph.data.Vertex;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Graph {
     private Map<Vertex,List<Vertex>> adjVertices;
@@ -46,6 +43,24 @@ public class Graph {
         return strBuilder.toString();
     }
 
+    public Set<String> breadthFirst( String root){
+        Set<String> visited = new LinkedHashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        queue.add(root);
+        visited.add(root);
+        while (!queue.isEmpty()){
+            String vertex = queue.poll();
+            for(Vertex v : this.getNeighbors(vertex)){
+                if(!visited.contains((v.getData())))
+                {
+                    queue.add(v.getData());
+                    visited.add(v.getData());
+
+                }
+            }
+        }
+        return visited;
+    }
 
     public List<Vertex> getNeighbors(String data){
         return adjVertices.get(new Vertex(data));

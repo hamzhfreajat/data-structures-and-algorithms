@@ -19,7 +19,9 @@ public class App {
         graph.addEdge("B","C");
         graph.addEdge("A","C");
 
-        System.out.println(graph.getNodes());
+
+        System.out.println(graph.breadthFirst("B"));
+        System.out.println(graph.breadthFirst("A"));
 
     }
 }
