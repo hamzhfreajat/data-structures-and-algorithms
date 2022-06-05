@@ -3,7 +3,12 @@
  */
 package com.graph;
 
+import com.graph.data.Vertex;
 import com.graph.structure.Graph;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class App {
 
@@ -11,17 +16,41 @@ public class App {
     public static void main(String[] args) {
         Graph graph = new Graph();
 
-        graph.addNode("A" );
-        graph.addNode("B");
-        graph.addNode("C");
+        graph.addNode("Pandora" );
+        graph.addNode("Arendelle");
+        graph.addNode("Monstropolis");
+        graph.addNode("Metroville");
+        graph.addNode("Naboo");
+        graph.addNode("Narnia");
 
-        graph.addEdge("A","B");
-        graph.addEdge("B","C");
-        graph.addEdge("A","C");
+
+        graph.addEdge("Pandora","Arendelle" , 150);
+        graph.addEdge("Arendelle","Metroville" , 99);
+        graph.addEdge("Monstropolis","Naboo" , 73);
+        graph.addEdge("Arendelle","Monstropolis" , 42);
+        graph.addEdge("Naboo","Narnia" , 37);
 
 
-        System.out.println(graph.breadthFirst("B"));
-        System.out.println(graph.breadthFirst("A"));
 
+
+
+
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        arrayList.add("Arendelle");
+        arrayList.add("Monstropolis");
+        arrayList.add("Naboo");
+
+
+        System.out.println(graphBusinessTrip(arrayList , graph));
+    }
+
+    public static int graphBusinessTrip(ArrayList<String> arrayList , Graph graph){
+        int sum = 0 ;
+        for (int i = 0; i < arrayList.size() - 1 ; i++) {
+
+            sum +=  graph.getWeight(arrayList.get(i) , arrayList.get(i+1));
+        }
+        return sum  ;
     }
 }

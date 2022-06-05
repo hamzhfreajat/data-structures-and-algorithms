@@ -97,49 +97,49 @@ class AppTest {
     }
 
     @Test
-    public void testRepeatedWord(){
-        String str = "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only...";
-        String val = App.repeatedWord(str);
-        String exp  = "it" ;
-        assertEquals(exp , val);
-    }
+//    public void testRepeatedWord(){
+//        String str = "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only...";
+//        String val = App.repeatedWord(str);
+//        String exp  = "it" ;
+//        assertEquals(exp , val);
+//    }
 
 
 
     // Code challange 33
-    @Test
-    public void leftJoinTest(){
-        HashMap<String , String> hashMap = new HashMap<>();
-        hashMap.put("diligent" , "employed");
-        hashMap.put("outfit" , "garb");
-
-
-        HashMap<String , String> hashMap2 = new HashMap<>();
-        hashMap2.put("diligent" , "idle");
-        hashMap2.put("flow" , "jam");
-
-        List<List<String>> list = leftJoin(hashMap , hashMap2);
-
-        List<List<String>> exp = new ArrayList<>();
-
-        List<String> arr1 = new ArrayList<>();
-        arr1.add("diligent");
-        arr1.add("employed");
-        arr1.add("idle");
-
-        List<String> arr2 = new ArrayList<>();
-        arr2.add("outfit");
-        arr2.add("garb");
-        arr2.add(null);
-
-        exp.add(arr1);
-        exp.add(arr2);
-
-
-        assertEquals(exp.toString() , list.toString());
-
-
-
-    }
+//    @Test
+//    public void leftJoinTest(){
+//        HashMap<String , String> hashMap = new HashMap<>();
+//        hashMap.put("diligent" , "employed");
+//        hashMap.put("outfit" , "garb");
+//
+//
+//        HashMap<String , String> hashMap2 = new HashMap<>();
+//        hashMap2.put("diligent" , "idle");
+//        hashMap2.put("flow" , "jam");
+//
+//        List<List<String>> list = leftJoin(hashMap , hashMap2);
+//
+//        List<List<String>> exp = new ArrayList<>();
+//
+//        List<String> arr1 = new ArrayList<>();
+//        arr1.add("diligent");
+//        arr1.add("employed");
+//        arr1.add("idle");
+//
+//        List<String> arr2 = new ArrayList<>();
+//        arr2.add("outfit");
+//        arr2.add("garb");
+//        arr2.add(null);
+//
+//        exp.add(arr1);
+//        exp.add(arr2);
+//
+//
+//        assertEquals(exp.toString() , list.toString());
+//
+//
+//
+//    }
 
 }
