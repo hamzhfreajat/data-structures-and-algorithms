@@ -142,7 +142,6 @@ public class App {
     }
 
     public static boolean validateBrackets(String input_str) {
-
         Stack<Character> stack = new Stack<Character>();
         for (char charecter : input_str.toCharArray()) {
             if (charecter == '(' || charecter == '{' || charecter == '[') {

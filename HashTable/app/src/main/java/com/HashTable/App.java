@@ -3,12 +3,9 @@
  */
 package com.HashTable;
 
-import com.HashTable.structure.HashMap;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Locale;
+
+import java.util.*;
 
 public class App {
 
@@ -29,50 +26,75 @@ public class App {
 //        System.out.println(hashMap.print("Ibrahem"));
 //        System.out.println(repeatedWord("It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."));
 
-        HashMap<String , String> hashMap = new HashMap<>();
-        hashMap.put("diligent" , "employed");
-        hashMap.put("fond" , "enamored");
-        hashMap.put("guide" , "usher");
-        hashMap.put("outfit" , "garb");
-        hashMap.put("wrath" , "anger");
-
-        HashMap<String , String> hashMap2 = new HashMap<>();
-        hashMap2.put("diligent" , "idle");
-        hashMap2.put("fond" , "averse");
-        hashMap2.put("guide" , "follow");
-        hashMap2.put("flow" , "jam");
-        hashMap2.put("wrath" , "delight");
+//        HashMap<String , String> hashMap = new HashMap<>();
+//        hashMap.put("diligent" , "employed");
+//        hashMap.put("fond" , "enamored");
+//        hashMap.put("guide" , "usher");
+//        hashMap.put("outfit" , "garb");
+//        hashMap.put("wrath" , "anger");
 
 
-        System.out.println(leftJoin(hashMap , hashMap2));
 
+
+//        System.out.println(leftJoin(hashMap , hashMap2));
+
+        System.out.println(mostCommonWord("In a galaxy far far away"));
 
 
     }
 
+    public static String mostCommonWord(String str){
 
-    public static List<List<String>> leftJoin(HashMap<String , String> leftHash , HashMap<String , String> rightHash){
-        List<List<String>> result = new ArrayList<>();
-        return leftHash.leftJoin(rightHash , result);
-    }
-
-
-    public static String repeatedWord (String str){
-        String[] strArr = str.split(" ");
-        HashMap<String , String> hashMap = new HashMap<>();
+        String[] newStr = str.split(" ") ;
+        HashMap<String , Integer> hashMap = new HashMap<>();
 
         for (String word:
-                strArr) {
-            word = word.toLowerCase().replaceAll(",", "");
-            if (hashMap.contains(word)){
-                System.out.println(word);
-                return word ;
-            }
-            else{
-                System.out.println(word);
-                hashMap.put(word , word);
+             newStr) {
+            if (hashMap.containsKey(word)){
+                hashMap.put(word , hashMap.get(word) + 1 );
+            }else {
+                hashMap.put(word , 0 );
             }
         }
-        return "There are no duplicate" ;
+
+        int max_count = 0;
+        String key = "";
+        for(Map.Entry<String, Integer> value : hashMap.entrySet())
+        {
+            if (max_count < value.getValue())
+            {
+                key = value.getKey();
+                max_count = value.getValue();
+            }
+        }
+
+
+
+        return key;
     }
+
+//    public static List<List<String>> leftJoin(HashMap<String , String> leftHash , HashMap<String , String> rightHash){
+//        List<List<String>> result = new ArrayList<>();
+//        return leftHash.leftJoin(rightHash , result);
+//    }
+
+
+//    public static String repeatedWord (String str){
+//        String[] strArr = str.split(" ");
+//        HashMap<String , String> hashMap = new HashMap<>();
+//
+//        for (String word:
+//                strArr) {
+//            word = word.toLowerCase().replaceAll(",", "");
+//            if (hashMap.contains(word)){
+//                System.out.println(word);
+//                return word ;
+//            }
+//            else{
+//                System.out.println(word);
+//                hashMap.put(word , word);
+//            }
+//        }
+//        return "There are no duplicate" ;
+//    }
 }

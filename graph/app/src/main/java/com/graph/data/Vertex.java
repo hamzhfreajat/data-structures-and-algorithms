@@ -19,6 +19,10 @@ public class Vertex {
         this.weight = weight;
     }
 
+    public int getWeight() {
+        return weight;
+    }
+
     @Override
     public String toString() {
         if (weight != 0){

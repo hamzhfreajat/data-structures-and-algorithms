@@ -3,6 +3,7 @@ package com.graph.structure;
 import com.graph.data.Vertex;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Graph {
     private Map<Vertex,List<Vertex>> adjVertices;
@@ -27,9 +28,9 @@ public class Graph {
         adjVertices.get(vertex2).add(vertex1);
     }
 
-    public void addEdge(String data1, int weight1 , String data2 , int weight2){
-        Vertex vertex1 = new Vertex(data1 , weight1);
-        Vertex vertex2 = new Vertex(data2 , weight2);
+    public void addEdge(String data1 , String data2 , int weight){
+        Vertex vertex1 = new Vertex(data1);
+        Vertex vertex2 = new Vertex(data2 , weight);
         adjVertices.get(vertex1).add(vertex2);
         adjVertices.get(vertex2).add(vertex1);
     }
@@ -60,6 +61,24 @@ public class Graph {
             }
         }
         return visited;
+    }
+
+    public int getWeight(String element , String visited){
+        List<Vertex> list = adjVertices.get(new Vertex(element));
+        int weight = 0  ;
+        for (Vertex index:
+             list) {
+            System.out.println(index);
+            System.out.println(visited);
+            if (index.getData() == visited){
+                weight = index.getWeight();
+
+
+            }
+        }
+
+        return weight ;
+
     }
 
     public List<Vertex> getNeighbors(String data){

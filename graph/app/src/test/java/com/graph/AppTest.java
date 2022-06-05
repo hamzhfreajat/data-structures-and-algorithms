@@ -7,10 +7,12 @@ import com.graph.data.Vertex;
 import com.graph.structure.Graph;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static com.graph.App.graphBusinessTrip;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
@@ -70,7 +72,7 @@ class AppTest {
 
         graph.addNode("A" );
         graph.addNode("B"  );
-        graph.addEdge("A" , 4,"B" , 5 ) ;
+        graph.addEdge("A" , "B"  , 4) ;
 
         List<Vertex> val = graph.getNeighbors("A");
         String exp = "[Vertex{data='B'weight='5'}]" ;
@@ -138,5 +140,39 @@ class AppTest {
     }
 
 
+    @Test
+    public void graphBusinessTripTest(){
+        Graph graph = new Graph();
+
+        graph.addNode("Pandora" );
+        graph.addNode("Arendelle");
+        graph.addNode("Monstropolis");
+        graph.addNode("Metroville");
+        graph.addNode("Naboo");
+        graph.addNode("Narnia");
+
+
+        graph.addEdge("Pandora","Arendelle" , 150);
+        graph.addEdge("Arendelle","Metroville" , 99);
+        graph.addEdge("Monstropolis","Naboo" , 73);
+        graph.addEdge("Arendelle","Monstropolis" , 42);
+        graph.addEdge("Naboo","Narnia" , 37);
+
+
+
+
+
+
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        arrayList.add("Arendelle");
+        arrayList.add("Monstropolis");
+        arrayList.add("Naboo");
+
+
+        int res = graphBusinessTrip(arrayList , graph);
+
+        assertEquals(res , 115);
+    }
 
 }

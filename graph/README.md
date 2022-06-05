@@ -39,3 +39,17 @@ The approach that I used is using queue to put element and poll it depend on if 
 
 ## Solution
 Go to app file, and you can run the method from class graph
+
+
+
+# Graph-business-trip
+Given a business trip itinerary, and an Alaska Airlines route map, is the trip possible with direct flights? If so, how much will the total trip cost be?
+
+## Whiteboard Process
+![](./graph-business-trip.png)
+
+## Approach & Efficiency
+Iterate through the arraylist that received and find the weight of all neighbour and add them to summation 
+
+## Solution
+You can run the app from App.java file 
