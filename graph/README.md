@@ -53,3 +53,16 @@ Iterate through the arraylist that received and find the weight of all neighbour
 
 ## Solution
 You can run the app from App.java file 
+
+
+# Depth First Traversal
+
+## Challenge
+Conduct a depth first preorder traversal on a graph
+
+## Approach & Efficiency
+Using stack and Push the root node into the Stack and mark as visited and keep tracking then pop the element that visited from stack .
+
+## Solution
+![](./DFT.png)
+

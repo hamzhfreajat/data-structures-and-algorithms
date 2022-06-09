@@ -34,15 +34,21 @@ public class App {
 
 
 
+    // Code Challenge 37
 
-        ArrayList<String> arrayList = new ArrayList<>();
+//        ArrayList<String> arrayList = new ArrayList<>();
+//
+//        arrayList.add("Arendelle");
+//        arrayList.add("Monstropolis");
+//        arrayList.add("Naboo");
+//
+//
+//        System.out.println(graphBusinessTrip(arrayList , graph));
 
-        arrayList.add("Arendelle");
-        arrayList.add("Monstropolis");
-        arrayList.add("Naboo");
 
-
-        System.out.println(graphBusinessTrip(arrayList , graph));
+        // Code challenge 38
+        System.out.println(graph.depthFirst("Pandora"));
+        System.out.println(graph.breadthFirst("Pandora"));
     }
 
     public static int graphBusinessTrip(ArrayList<String> arrayList , Graph graph){

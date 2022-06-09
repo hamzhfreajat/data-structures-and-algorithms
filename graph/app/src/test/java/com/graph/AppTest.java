@@ -175,4 +175,28 @@ class AppTest {
         assertEquals(res , 115);
     }
 
+    @Test
+    public void depthFirstTest(){
+        Graph graph = new Graph();
+
+        graph.addNode("Pandora" );
+        graph.addNode("Arendelle");
+        graph.addNode("Monstropolis");
+        graph.addNode("Metroville");
+        graph.addNode("Naboo");
+        graph.addNode("Narnia");
+
+
+        graph.addEdge("Pandora","Arendelle" , 150);
+        graph.addEdge("Arendelle","Metroville" , 99);
+        graph.addEdge("Monstropolis","Naboo" , 73);
+        graph.addEdge("Arendelle","Monstropolis" , 42);
+        graph.addEdge("Naboo","Narnia" , 37);
+
+        String set = graph.depthFirst("Pandora").toString();
+        String exp = "[Narnia, Pandora, Metroville, Monstropolis, Naboo, Arendelle]" ;
+
+        assertEquals(set , exp);
+    }
+
 }

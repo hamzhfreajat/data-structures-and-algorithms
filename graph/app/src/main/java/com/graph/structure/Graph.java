@@ -63,6 +63,29 @@ public class Graph {
         return visited;
     }
 
+    public Set<String> depthFirst(String root)
+    {
+        Set<String> visited = new HashSet<>();
+        Stack<String> stack = new Stack<>();
+        stack.push(root);
+        visited.add(root);
+        while (!stack.isEmpty()){
+            String vertex = stack.pop();
+            for(Vertex v : this.getNeighbors(vertex)){
+                if(!visited.contains((v.getData())))
+                {
+                    stack.push(v.getData());
+                    visited.add(v.getData());
+                }
+            }
+        }
+        return visited;
+
+    }
+
+
+
+
     public int getWeight(String element , String visited){
         List<Vertex> list = adjVertices.get(new Vertex(element));
         int weight = 0  ;
